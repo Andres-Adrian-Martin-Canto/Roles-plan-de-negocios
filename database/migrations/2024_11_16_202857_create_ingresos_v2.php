@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gastos_de_articulos_de_venta', function (Blueprint $table) {
+        Schema::create('ingresos_v2', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('estudio_id')->constrained('estudio_financiero_v2','id','fk_gasto_articulo_estudio')->onDelete('cascade');
+            $table->foreignId('estudio_id')->constrained('estudio_financiero_v2','id','fk_ingresoV2_estudio')->onDelete('cascade');
             $table->string('nombre',255);
-            $table->decimal('unidades_adquiridas',10,2);
-            $table->decimal('costo_unitario',10,2);
+            $table->decimal('precio_venta',10,2);
+            $table->decimal('unidades_mensuales',10,2);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gastos_de_articulos_de_venta');
+        Schema::dropIfExists('ingresos_v2');
     }
 };
