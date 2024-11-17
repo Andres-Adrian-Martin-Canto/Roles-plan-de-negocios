@@ -69,4 +69,9 @@ class Plan_de_negocio extends Model
         return $this->hasOne(EstudioFinanciero::class)->select('id');
     }
 
+    // * Una funcion para obtener el estudio financiero v2.
+    public function estudioFinancieroV2(): HasOne {
+        // * Relacion que me regresara el estudio financiero.
+        return $this->hasOne(estudio_financiero_v2::class, 'plan_de_negocio_id');
+    }
 }

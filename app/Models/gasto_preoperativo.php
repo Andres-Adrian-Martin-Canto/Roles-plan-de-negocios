@@ -10,6 +10,7 @@ class gasto_preoperativo extends Model
     use HasFactory;
 
     protected $fillable = [
+        'estudio_id',
         'nombre',
         'cantidad',
         'costo_unitario'

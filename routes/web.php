@@ -12,11 +12,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConceptoController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\cincoAniosOptimista;
 use App\Http\Controllers\cincoAniosPesimista;
 use App\Http\Controllers\CostoFijoController;
 use App\Http\Controllers\ConclusionController;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\PublicidadController;
+use App\Http\Controllers\cincoAniosConservador;
 use App\Http\Controllers\ConservadorController;
 use App\Http\Controllers\estadisticasController;
 use App\Http\Controllers\ModeloCanvasController;
@@ -31,8 +33,7 @@ use App\Http\Controllers\GruposDeTrabajoController;
 use App\Http\Controllers\CapturarResultadoController;
 use App\Http\Controllers\ImagenCorporativaController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\cincoAniosConservador;
-use App\Http\Controllers\cincoAniosOptimista;
+use App\Http\Controllers\gastosPreoperativosController;
 use App\Http\Controllers\CulturaOrganizacionalController;
 
 /*
@@ -87,7 +88,8 @@ Route::middleware('auth')->group(function () {
             'plan_de_negocio.proyeccionOptimista' => OptimistaAnualController::class,
             'plan_de_negocio.proyeccionPesimistaCincoAnios' => cincoAniosPesimista::class,
             'plan_de_negocio.proyeccionConservadorCincoAnios' => cincoAniosConservador::class,
-            'plan_de_negocio.proyeccionOptimistaCincoAnios' => cincoAniosOptimista::class
+            'plan_de_negocio.proyeccionOptimistaCincoAnios' => cincoAniosOptimista::class,
+            'plan_de_negocio.gastoPreoperativo' => gastosPreoperativosController::class
         ]);
     });
 
