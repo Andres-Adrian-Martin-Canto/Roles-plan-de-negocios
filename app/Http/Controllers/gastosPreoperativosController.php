@@ -18,6 +18,7 @@ class gastosPreoperativosController extends Controller
         $columnaPrincipal = "Gasto Preoperativo";
         $columnaSecundaria = "Cantidad";
         $columnaTercera = "Costo Unitario";
+        $columnaCuarta = "Costos Total";
         // * Pregunta si no existe el estudio entonces lo va a crear.
         if (!$estudio) {
             estudio_financiero_v2::create([
@@ -33,7 +34,10 @@ class gastosPreoperativosController extends Controller
             'columnaPrincipal' => $columnaPrincipal,
             'columnaSecundaria' => $columnaSecundaria,
             'columnaTercera' => $columnaTercera,
+            'columnaCuarta' => $columnaCuarta,
+            'url' => route('plan_de_negocio.gastoPreoperativo.store', $plan_de_negocio),
             'datos' => $estudio->gastoPreoperativo,
+            'plan_de_negocio' => $plan_de_negocio,
             'titulo' => 'Gastos Preoperativos'
         ]);
     }
