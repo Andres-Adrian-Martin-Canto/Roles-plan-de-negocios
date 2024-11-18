@@ -5,6 +5,5 @@
 @layer components{
     .card{
         @apply bg-slate-700 dark:bg-gray-800  place-content-center rounded-lg
-         font-bold
     }
 }

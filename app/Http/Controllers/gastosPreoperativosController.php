@@ -30,13 +30,13 @@ class gastosPreoperativosController extends Controller
             ]);
         }
         // * retorna la vista y envia los valores.
-        return view('plan_financiero.gastos_preoperativos', [
+        return view('plan_financiero.plantillaMensualesV2', [
             'columnaPrincipal' => $columnaPrincipal,
             'columnaSecundaria' => $columnaSecundaria,
             'columnaTercera' => $columnaTercera,
             'columnaCuarta' => $columnaCuarta,
             'url' => route('plan_de_negocio.gastoPreoperativo.store', $plan_de_negocio),
-            'datos' => $estudio->gastoPreoperativo,
+            'datos' => $estudio->gastoPreoperativo->toArray(),
             'plan_de_negocio' => $plan_de_negocio,
             'titulo' => 'Gastos Preoperativos'
         ]);
