@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $titulo }}</title>
-    @vite(['resources/css/estilos.css', 'resources/css/app.css', 'resources/js/app.js', 'resources/js/menuIzquierdo'])
+    @vite(['resources/css/estilos.css', 'resources/css/app.css', 'resources/js/app.js', 'resources/js/menuIzquierdo', 'resources/js/funcionalidadMensualV2'])
 </head>
 
 <body class="p-0 m-0">
@@ -30,7 +30,7 @@
             <hr class="my-2 h-0.5 border-t-0 w-full bg-neutral-100 dark:bg-white m-0 p-0" />
             <div class="px-2 pb-2 mx-2 mb-2 bg-white">
                 <h2 class="text-center py-4  2xl:text-2xl text-lg font-normal">Ingresa los {{ $titulo }}</h2>
-                <table class="w-full table-auto" id="miTabla" dato='{{ $plan_de_negocio->id }}'>
+                <table class="w-full table-auto" dato='{{ $plan_de_negocio->id }}'>
                     <thead>
                         <tr class="bg-gray-200">
                             <th class="border w-24">{{ $columnaPrincipal }}</th>
@@ -73,9 +73,9 @@
                     </tbody>
                     <tfoot class="">
                         <tr>
-                            <td id="costosFijos" colspan="5"
+                            <td id="totaldeTotales" colspan="5"
                                 class="text-right pr-2 font-bold dark:bg-gray-800  text-white">
-                                Total {{ $titulo }}: $0
+                                Total {{ $titulo }}: $0.00
                             </td>
                         </tr>
                     </tfoot>
@@ -83,15 +83,17 @@
             </div>
             {{-- TODO: Boton para guardar --}}
         <div class="flex justify-center py-3">
+            {{-- !!!Remplazar  $datos--}}
             @if ($datos)
                 {{-- TODO: Inserto la urlDinamica --}}
-                <button id="miBoton" urlDinamica={{ $url }}
+                {{-- !!!Remplazar  informacion--}}
+                <button id="miBoton" urlDinamica={{ $url }} informacion= {{ count($datos) }}
                     class="w-1/4  bg-green-500 text-white font-bold py-1  rounded">
                     Guardar cambios
                 </button>
             @else
                 {{-- TODO: Inserto la urlDinamica --}}
-                <button id="miBoton" urlDinamica={{ $url }} disabled
+                <button id="miBoton" urlDinamica={{ $url }} informacion="" disabled
                     class="w-1/4  bg-green-800 text-gray-400 font-bold py-1  rounded">
                     Guardar cambios
                 </button>
