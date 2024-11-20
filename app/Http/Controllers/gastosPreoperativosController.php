@@ -37,6 +37,7 @@ class gastosPreoperativosController extends Controller
             'columnaCuarta' => $columnaCuarta,
             'url' => route('plan_de_negocio.gastoPreoperativo.store', $plan_de_negocio),
             'datos' => $estudio->gastoPreoperativo->toArray(),
+            'datos_anuales' => $estudio->gastosPreoperativosAnuales,
             'plan_de_negocio' => $plan_de_negocio,
             'titulo' => 'Gastos Preoperativos'
         ]);
