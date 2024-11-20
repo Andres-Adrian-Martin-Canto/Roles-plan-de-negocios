@@ -46,13 +46,18 @@
                                 @php
                                     $key = array_keys($dato);
                                 @endphp
-                                @for ($x = 2; $x < 5; $x++)
+                                <td class="border px-4 py-2"> <input type="text"
+                                        class="w-full border rounded-sm px-2 py-1 text-left"
+                                        value="{{ $dato[$key[2]] }}">
+                                </td>
+                                @for ($x = 3; $x < 5; $x++)
                                     <td class="border px-4 py-2"> <input type="text"
-                                            class="w-full border rounded-sm px-2 py-1" value="{{ $dato[$key[$x]] }}">
+                                            class="w-full border rounded-sm px-2 py-1 text-right"
+                                            value="{{ $dato[$key[$x]] }}">
                                     </td>
                                 @endfor
                                 <td class="border px-4 py-2"> <input type="text"
-                                        class="w-full border rounded-sm px-2 py-1" disabled
+                                        class="w-full border rounded-sm px-2 py-1 text-right" disabled
                                         value="{{ sprintf('%.2f', $dato[$key[3]] * $dato[$key[4]]) }}">
                                 </td>
                                 <td class="border"> <button
@@ -82,22 +87,23 @@
                 </table>
             </div>
             {{-- TODO: Boton para guardar --}}
-        <div class="flex justify-center py-3">
-            @if (count($datos_anuales) > 0)
-                {{-- TODO: Inserto la urlDinamica --}}
-                <button id="miBoton" urlDinamica={{ $url }} informacion= {{ count($datos_anuales) }}
-                    class="w-1/4  bg-green-500 text-white font-bold py-1  rounded">
-                    Guardar cambios
-                </button>
-            @else
-                {{-- TODO: Inserto la urlDinamica --}}
-                <button id="miBoton" urlDinamica={{ $url }} informacion="" disabled
-                    class="w-1/4  bg-green-800 text-gray-400 font-bold py-1  rounded">
-                    Guardar cambios
-                </button>
-            @endif
-        </div>
+            <div class="flex justify-center py-3">
+                @if (count($datos_anuales) > 0)
+                    {{-- TODO: Inserto la urlDinamica --}}
+                    <button id="miBoton" urlDinamica={{ $url }} informacion={{ count($datos_anuales) }}
+                        class="w-1/4  bg-green-500 text-white font-bold py-1  rounded">
+                        Guardar cambios
+                    </button>
+                @else
+                    {{-- TODO: Inserto la urlDinamica --}}
+                    <button id="miBoton" urlDinamica={{ $url }} informacion="" disabled
+                        class="w-1/4  bg-green-800 text-gray-400 font-bold py-1  rounded">
+                        Guardar cambios
+                    </button>
+                @endif
+            </div>
         </div>
     </div>
 </body>
+
 </html>

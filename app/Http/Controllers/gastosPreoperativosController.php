@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\estudio_financiero_v2;
+use App\Models\gasto_preoperativo;
 use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class gastosPreoperativosController extends Controller
 {
@@ -54,9 +56,24 @@ class gastosPreoperativosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        // Obtengo el id del estudioFinanciero.
+        $json = $request->json()->all();
+        $estudio = $plan_de_negocio->estudioFinancieroV2;
+        $estudio->gastoPreoperativo()->delete();
+        $totalDeGastosPreoperativos = 0;
+        foreach ($json as $datoNuevo) {
+            gasto_preoperativo::create([
+                'estudio_id' => $estudio->id,
+                'nombre' => $datoNuevo[0],
+                'cantidad' => $datoNuevo[1],
+                'costo_unitario' => $datoNuevo[2]
+            ]);
+            $totalDeGastosPreoperativos += $datoNuevo[3];
+        }
+        $estudio->total_gastos_preoperativos_mensuales = $totalDeGastosPreoperativos;
+        $estudio->save();
     }
 
     /**

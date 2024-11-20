@@ -29,7 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // * Agregar el array de valores a la matriz.
         matrizMultidimensional.push(arrayValores);
     }); // * Fin del foreach de recorrer las filas.
-
+    // Llamo funcion para calcular el total.
+    calcularTotalDeTotales();
+    // TODO: Crear los eventos para los botones de los datos de la base de datos
+    let botones = document.querySelectorAll("table tbody tr button");
+    // Recorro los botones para asignarle el evento.
+    botones.forEach((boton) => {
+        // Se agregan los eventos.
+        eventoBoton(boton);
+    });
 
 
     /**
@@ -275,19 +283,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // obtengo el td total.
         const tdTotal = tdSiguiente.nextElementSibling;
         // * En caso que tenga valor hara le calculo.
-        if (tdSiguiente.firstChild.value) {
+        if (tdSiguiente.querySelector("input").value) {
             // Calculo el input actual con el input siguiente.
-            let calcularTotal = parseFloat(input.value) * parseFloat(tdSiguiente.firstChild.value);
+            let calcularTotal = parseFloat(input.value) * parseFloat(tdSiguiente.querySelector("input").value);
             // * Asigno el resultado de la multiplicacion a la matriz
             matrizMultidimensional[posicionFila - 1][posicionColumna + 2] = calcularTotal.toFixed(2).toString();
             // * Asigno el resultado de la multiplicacion al td total.
-            tdTotal.firstChild.value = calcularTotal.toFixed(2).toString();
+            tdTotal.querySelector("input").value = calcularTotal.toFixed(2).toString();
             // Se manda a calcular el total de los totales.
             calcularTotalDeTotales();
             // Llamar a metodo para ver si se tiene que crear nueva fila.
             crearFila(posicionFila, tdpadre);
         } else { // * En caso de que la fila este vacia asignara en el td total el valor 0
-            tdTotal.firstChild.value = "0.00";
+            tdTotal.querySelector("input").value = "0.00";
             // Se le asigna igual a la matriz.
             matrizMultidimensional[posicionFila - 1][posicionColumna + 2] = "0.00";
             // Se manda a calcular el total de los totales.
@@ -309,20 +317,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const tdAnterior = tdpadre.previousElementSibling;
         // Obtengo el td total de la fila
         const tdTotal = tdpadre.nextElementSibling;
-        if (tdAnterior.firstChild.value) {
+        if (tdAnterior.querySelector("input").value) {
             // Calculo el input actual con el input anterior.
-            let calcularTotal = parseFloat(input.value) * parseFloat(tdAnterior.firstChild.value);
+            let calcularTotal = parseFloat(input.value) * parseFloat(tdAnterior.querySelector("input").value);
             // * Asigno el resultado de la multiplicacion a la matriz
             matrizMultidimensional[posicionFila - 1][posicionColumna + 1] = calcularTotal.toFixed(2).toString();
             // * Asigno el resultado de la multiplicacion al td total.
-            tdTotal.firstChild.value = calcularTotal.toFixed(2).toString();
+            tdTotal.querySelector("input").value = calcularTotal.toFixed(2).toString();
             // Se manda a calcular el total de los totales.
             calcularTotalDeTotales();
             // Llamar a metodo para ver si se tiene que crear nueva fila.
             crearFila(posicionFila, tdpadre);
         } else {
             // * En caso de que la fila este vacia asignara en el td total el valor 0
-            tdTotal.firstChild.value = "0.00";
+            tdTotal.querySelector("input").value = "0.00";
             // Se le asigna igual a la matriz.
             matrizMultidimensional[posicionFila - 1][posicionColumna + 1] = "0.00";
             // Se manda a calcular el total de los totales.
@@ -383,6 +391,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "py-2",
                     "px-4",
                     "rounded",
+                    "w-full"
                 );
                 // Asignancion de evento del boton.
                 eventoBoton(botonEliminar);
