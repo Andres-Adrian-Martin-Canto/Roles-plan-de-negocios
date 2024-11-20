@@ -29,6 +29,7 @@ use App\Http\Controllers\CostosVariableController;
 use App\Http\Controllers\OptimistaAnualController;
 use App\Http\Controllers\PesimistaAnualController;
 use App\Http\Controllers\EstructuraLegalController;
+use App\Http\Controllers\gastosMensualesController;
 use App\Http\Controllers\GruposDeTrabajoController;
 use App\Http\Controllers\CapturarResultadoController;
 use App\Http\Controllers\ImagenCorporativaController;
@@ -91,6 +92,7 @@ Route::middleware('auth')->group(function () {
             'plan_de_negocio.proyeccionOptimistaCincoAnios' => cincoAniosOptimista::class,
             // TODO: ENDPOIND de la nueva version V2
             'plan_de_negocio.gastoPreoperativo' => gastosPreoperativosController::class,
+            'plan_de_negocio.gastosMensuales' =>  gastosMensualesController::class
         ]);
     });
 

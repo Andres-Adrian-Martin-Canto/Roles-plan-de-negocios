@@ -22,18 +22,27 @@ class estudio_financiero_v2 extends Model
     // TODO: Relaciones
 
     // * Relacion para obtener los gastos Preoperativos mensuales
-    public function gastoPreoperativo() {
+    public function gastoPreoperativo()
+    {
         // * Estoy diciendo que un estudio financiero puede tener varios gastosPreoperativos.
         return $this->hasMany(gasto_preoperativo::class, 'estudio_id');
     }
 
-    // * Relacion para obtener los gastos anuales
-    public function gastosAnuales() {
-        return $this->hasMany(gastos_anuales::class, 'estudio_id');
+    // * Relacion para obtener los gastos preoperativos anuales
+    public function gastosPreoperativosAnuales()
+    {
+        return $this->hasMany(gastos_preoperativos_anuales::class, 'estudio_id');
     }
 
-    // * Relacion para obtener los gastos preoperativos anuales
-    public function gastosPreoperativosAnuales() {
-        return $this->hasMany(gastos_preoperativos_anuales::class,'estudio_id');
+    // * Relacion para obtener los gastos mensuales
+    public function gastosMensuales()
+    {
+        return $this->hasMany(gasto_mensual::class, 'estudio_id');
+    }
+
+    // * Relacion para obtener los gastos anuales
+    public function gastosAnuales()
+    {
+        return $this->hasMany(gastos_anuales::class, 'estudio_id');
     }
 }

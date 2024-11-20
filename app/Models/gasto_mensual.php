@@ -10,6 +10,7 @@ class gasto_mensual extends Model
     use HasFactory;
 
     protected $fillable = [
+        'estudio_id',
         'nombre',
         'unidad',
         'monto_unitario'
