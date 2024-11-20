@@ -89,7 +89,8 @@ Route::middleware('auth')->group(function () {
             'plan_de_negocio.proyeccionPesimistaCincoAnios' => cincoAniosPesimista::class,
             'plan_de_negocio.proyeccionConservadorCincoAnios' => cincoAniosConservador::class,
             'plan_de_negocio.proyeccionOptimistaCincoAnios' => cincoAniosOptimista::class,
-            'plan_de_negocio.gastoPreoperativo' => gastosPreoperativosController::class
+            // TODO: ENDPOIND de la nueva version V2
+            'plan_de_negocio.gastoPreoperativo' => gastosPreoperativosController::class,
         ]);
     });
 
