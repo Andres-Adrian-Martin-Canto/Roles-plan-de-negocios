@@ -31,4 +31,9 @@ class estudio_financiero_v2 extends Model
     public function gastosAnuales() {
         return $this->hasMany(gastos_anuales::class, 'estudio_id');
     }
+
+    // * Relacion para obtener los gastos preoperativos anuales
+    public function gastosPreoperativosAnuales() {
+        return $this->hasMany(gastos_preoperativos_anuales::class,'estudio_id');
+    }
 }
