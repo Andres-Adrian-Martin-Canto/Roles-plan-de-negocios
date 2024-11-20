@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\estudio_financiero_v2;
+use App\Models\gasto_mensual;
 use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class gastosMensualesController extends Controller
 {
@@ -54,9 +56,26 @@ class gastosMensualesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        // Obtengo el id del estudioFinanciero.
+        $json = $request->json()->all();
+        $estudio = $plan_de_negocio->estudioFinancieroV2;
+        $estudio->gastosMensuales()->delete();
+        $totalDeGastosPreoperativos = 0;
+        if ($json[0][0] !== null) {
+            foreach ($json as $datoNuevo) {
+                gasto_mensual::create([
+                    'estudio_id' => $estudio->id,
+                    'nombre' => $datoNuevo[0],
+                    'unidad' => $datoNuevo[1],
+                    'monto_unitario' => $datoNuevo[2]
+                ]);
+                $totalDeGastosPreoperativos += $datoNuevo[3];
+            }
+            $estudio->total_gastos_mensuales_mensuales = $totalDeGastosPreoperativos;
+            $estudio->save();
+        }
     }
 
     /**
