@@ -63,14 +63,16 @@ class gastosPreoperativosController extends Controller
         $estudio = $plan_de_negocio->estudioFinancieroV2;
         $estudio->gastoPreoperativo()->delete();
         $totalDeGastosPreoperativos = 0;
-        foreach ($json as $datoNuevo) {
-            gasto_preoperativo::create([
-                'estudio_id' => $estudio->id,
-                'nombre' => $datoNuevo[0],
-                'cantidad' => $datoNuevo[1],
-                'costo_unitario' => $datoNuevo[2]
-            ]);
-            $totalDeGastosPreoperativos += $datoNuevo[3];
+        if ($json[0][0] !== null) {
+            foreach ($json as $datoNuevo) {
+                gasto_preoperativo::create([
+                    'estudio_id' => $estudio->id,
+                    'nombre' => $datoNuevo[0],
+                    'cantidad' => $datoNuevo[1],
+                    'costo_unitario' => $datoNuevo[2]
+                ]);
+                $totalDeGastosPreoperativos += $datoNuevo[3];
+            }
         }
         $estudio->total_gastos_preoperativos_mensuales = $totalDeGastosPreoperativos;
         $estudio->save();
