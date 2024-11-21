@@ -73,9 +73,9 @@ class gastosMensualesController extends Controller
                 ]);
                 $totalDeGastosPreoperativos += $datoNuevo[3];
             }
-            $estudio->total_gastos_mensuales_mensuales = $totalDeGastosPreoperativos;
-            $estudio->save();
         }
+        $estudio->total_gastos_mensuales_mensuales = $totalDeGastosPreoperativos;
+        $estudio->save();
     }
 
     /**
