@@ -10,6 +10,7 @@ class gasto_de_articulo_de_venta extends Model
     use HasFactory;
 
     protected $fillable = [
+        'estudio_id',
         'nombre',
         'unidad',
         'monto_unitario'

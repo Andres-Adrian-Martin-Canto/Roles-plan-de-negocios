@@ -45,4 +45,15 @@ class estudio_financiero_v2 extends Model
     {
         return $this->hasMany(gastos_anuales::class, 'estudio_id');
     }
+
+    // TODO: Relacion de gastos de articulos de venta.
+    // * gastos de articulo de venta mensual
+    public function gastos_articulos_venta_mensual() {
+        return $this->hasMany(gasto_de_articulo_de_venta::class, 'estudio_id');
+    }
+
+    // * gastos de articulo de venta anual
+    public function gastos_articulos_venta_anuales() {
+        return $this->hasMany(gastos_articulo_venta_anuales::class, 'estudio_id');
+    }
 }
