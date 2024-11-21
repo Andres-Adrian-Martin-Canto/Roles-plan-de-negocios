@@ -59,7 +59,7 @@
             </li>
         </div>
     </a>
-    <a href="{{ route('plan_de_negocio.ingresos.index', $plan_de_negocio) }}">
+    <a href="{{ route('plan_de_negocio.ingresosV2.index', $plan_de_negocio) }}">
         <li class="mb-10 ms-6">
             <span
                 class="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 ring-4 ring-gray-900 bg-gray-700">

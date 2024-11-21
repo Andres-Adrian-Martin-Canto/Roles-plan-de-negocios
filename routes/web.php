@@ -37,7 +37,9 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\gastosPreoperativosController;
 use App\Http\Controllers\CulturaOrganizacionalController;
 use App\Http\Controllers\gastos_articulos_ventasController;
+use App\Http\Controllers\ingresosV2Controller;
 use App\Models\gasto_de_articulo_de_venta;
+use App\Models\ingreso_v2;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +97,8 @@ Route::middleware('auth')->group(function () {
             // TODO: ENDPOIND de la nueva version V2
             'plan_de_negocio.gastoPreoperativo' => gastosPreoperativosController::class,
             'plan_de_negocio.gastosMensuales' =>  gastosMensualesController::class,
-            'plan_de_negocio.gastos-articulo-venta' => gastos_articulos_ventasController::class
+            'plan_de_negocio.gastos-articulo-venta' => gastos_articulos_ventasController::class,
+            'plan_de_negocio.ingresosV2' => ingresosV2Controller::class,
         ]);
     });
 

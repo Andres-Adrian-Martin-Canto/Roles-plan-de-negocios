@@ -56,4 +56,15 @@ class estudio_financiero_v2 extends Model
     public function gastos_articulos_venta_anuales() {
         return $this->hasMany(gastos_articulo_venta_anuales::class, 'estudio_id');
     }
+
+    // TODO: Relacion de ingresos.
+    // * Relacion para ingresos mensuales
+    public function ingresos_Mensuales() {
+        return $this->hasMany(ingreso_v2::class, 'estudio_id');
+    }
+
+    //* Relacion para ingresos anuales
+    public function ingresos_Anuales() {
+        return $this->hasMany(ingresos_anuales_v2::class, 'estudio_id');
+    }
 }

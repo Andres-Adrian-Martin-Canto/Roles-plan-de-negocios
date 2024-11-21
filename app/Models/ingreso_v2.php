@@ -15,4 +15,6 @@ class ingreso_v2 extends Model
         'precio_venta',
         'unidades_mensuales'
     ];
+
+    protected $table = "ingresos_v2";
 }
