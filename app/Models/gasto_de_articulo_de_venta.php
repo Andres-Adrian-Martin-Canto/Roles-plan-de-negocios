@@ -12,8 +12,8 @@ class gasto_de_articulo_de_venta extends Model
     protected $fillable = [
         'estudio_id',
         'nombre',
-        'unidad',
-        'monto_unitario'
+        'unidades_adquiridas',
+        'costo_unitario'
     ];
 
     protected $table = 'gastos_de_articulos_de_venta';
