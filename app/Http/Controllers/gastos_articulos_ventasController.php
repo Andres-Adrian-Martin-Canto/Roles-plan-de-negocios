@@ -74,7 +74,7 @@ class gastos_articulos_ventasController extends Controller
                 $totalDeGastosPreoperativos += $datoNuevo[3];
             }
         }
-        $estudio->total_gastos_mensuales_mensuales = $totalDeGastosPreoperativos;
+        $estudio->total_gastos_de_articulos_por_venta_mensuales = $totalDeGastosPreoperativos;
         $estudio->save();
     }
 
