@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\estudio_financiero_v2;
+use App\Models\ingreso_v2;
 use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
 
@@ -54,9 +55,26 @@ class ingresosV2Controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        // Obtengo el id del estudioFinanciero.
+        $json = $request->json()->all();
+        $estudio = $plan_de_negocio->estudioFinancieroV2;
+        $estudio->ingresos_Mensuales()->delete();
+        $totalDeGastosPreoperativos = 0;
+        if ($json[0][0] !== null) {
+            foreach ($json as $datoNuevo) {
+                ingreso_v2::create([
+                    'estudio_id' => $estudio->id,
+                    'nombre' => $datoNuevo[0],
+                    'precio_venta' => $datoNuevo[1],
+                    'unidades_mensuales' => $datoNuevo[2],
+                ]);
+                $totalDeGastosPreoperativos += $datoNuevo[3];
+            }
+        }
+        $estudio->total_ingresos_mensuales = $totalDeGastosPreoperativos;
+        $estudio->save();
     }
 
     /**
