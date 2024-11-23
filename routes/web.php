@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\ingreso_v2;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FodaController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Models\gasto_de_articulo_de_venta;
 use App\Http\Controllers\AdviserController;
 use App\Http\Controllers\EstudioController;
 use App\Http\Controllers\IngresoController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\cincoAniosPesimista;
 use App\Http\Controllers\CostoFijoController;
 use App\Http\Controllers\ConclusionController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\ingresosV2Controller;
 use App\Http\Controllers\PublicidadController;
 use App\Http\Controllers\cincoAniosConservador;
 use App\Http\Controllers\ConservadorController;
@@ -35,11 +38,9 @@ use App\Http\Controllers\CapturarResultadoController;
 use App\Http\Controllers\ImagenCorporativaController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\gastosPreoperativosController;
+use App\Http\Controllers\flujoEfectivoMensualController;
 use App\Http\Controllers\CulturaOrganizacionalController;
 use App\Http\Controllers\gastos_articulos_ventasController;
-use App\Http\Controllers\ingresosV2Controller;
-use App\Models\gasto_de_articulo_de_venta;
-use App\Models\ingreso_v2;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +100,7 @@ Route::middleware('auth')->group(function () {
             'plan_de_negocio.gastosMensuales' =>  gastosMensualesController::class,
             'plan_de_negocio.gastos-articulo-venta' => gastos_articulos_ventasController::class,
             'plan_de_negocio.ingresosV2' => ingresosV2Controller::class,
+            'plan_de_negocio.flujoEfectivoMensual' => flujoEfectivoMensualController::class
         ]);
     });
 
