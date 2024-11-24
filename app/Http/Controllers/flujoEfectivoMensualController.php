@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\gasto_de_articulo_de_venta;
 use App\Models\gasto_mensual;
 use App\Models\gasto_preoperativo;
+use App\Models\gastos_anuales;
+use App\Models\gastos_articulo_venta_anuales;
+use App\Models\gastos_preoperativos_anuales;
 use App\Models\ingreso_v2;
+use App\Models\ingresos_anuales_v2;
 use Illuminate\Http\Request;
 use App\Models\Plan_de_negocio;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class flujoEfectivoMensualController extends Controller
 {
@@ -51,7 +53,7 @@ class flujoEfectivoMensualController extends Controller
                     $id_actual = $value->id_gasto_mensual_preoperativo;
                 }
                 // Estructuro los valores.
-                $dataGastosPreoperativoAnuales[$value->id_gasto_mensual_preoperativo][$name][$value->mes]= [$value->id , $value->monto];
+                $dataGastosPreoperativoAnuales[$value->id_gasto_mensual_preoperativo][$name][$value->mes] = [$value->id, $value->monto];
             }
         } else { //  De lo contrario obtendre los gastos preoperativos mensuales.
             // Boton se activara.
@@ -79,7 +81,7 @@ class flujoEfectivoMensualController extends Controller
                     $id_actual = $value->id_gasto_mensual;
                 }
                 // Estructurando los valores.
-                $dataGastosAnuales [$value->id_gasto_mensual][$name][$value->mes] = [$value->id , $value->monto];
+                $dataGastosAnuales[$value->id_gasto_mensual][$name][$value->mes] = [$value->id, $value->monto];
             }
         } else { // De lo contrario obtendra los datos mensuales
             // Boton se activara.
@@ -107,7 +109,7 @@ class flujoEfectivoMensualController extends Controller
                     $id_actual = $value->id_gasto_articulo_venta;
                 }
                 // Estructuro los datos.
-                $dataGastos_Articulos_Venta_Anuales [$value->id_gasto_mensual][$name][$value->mes] = [$value->id , $value->monto];
+                $dataGastos_Articulos_Venta_Anuales[$value->id_gasto_articulo_venta][$name][$value->mes] = [$value->id, $value->monto];
             }
         } else { // De lo contrario obtendra los gastos de articulos de venta mensuales.
             // Boton se activara.
@@ -131,10 +133,10 @@ class flujoEfectivoMensualController extends Controller
                     // Obtengo el nombre
                     $name = ingreso_v2::find($value->id_ingresos_anuales)->nombre;
                     // Cambio el id.
-                    $id_actual = $value->id_gasto_articulo_venta;
+                    $id_actual = $value->id_ingresos_anuales;
                 }
                 // Estructuro los datos.
-                $ingresosAnuales [$value->id_gasto_articulo_venta][$name][$value->mes] = [$value->id , $value->monto];
+                $ingresosAnuales[$value->id_ingresos_anuales][$name][$value->mes] = [$value->id, $value->monto];
             }
         } else { // De lo contrario obtendra los ingresos mensuales.
             // Boton se activara.
@@ -178,8 +180,74 @@ class flujoEfectivoMensualController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
+        $estudio = $plan_de_negocio->estudioFinancieroV2;
+        $estructuraConvertida = json_decode($request->getContent(), true);
+        $GastosPreoperativos = $estructuraConvertida[0];
+        $gastos = $estructuraConvertida[1];
+        $GastosArticulosVenta = $estructuraConvertida[2];
+        $ingresos = $estructuraConvertida[3];
+
+        // TODO: Almacenando o actualizando los Gastos Preoperativos
+        foreach ($GastosPreoperativos as $key => $value) {
+            for ($i = 0; $i < count($value); $i++) {
+                gastos_preoperativos_anuales::updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_gasto_mensual_preoperativo' => $key,
+                        'estudio_id' => $estudio->id,
+                        'mes' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
+        // TODO: Almacenando o actualizando los Gastos
+        foreach ($gastos as $key => $value) {
+            for ($i = 0; $i < count($value); $i++) {
+                gastos_anuales::updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_gasto_mensual' => $key,
+                        'estudio_id' => $estudio->id,
+                        'mes' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
+        // TODO: Almacenamos gastos de articulos de venta
+        foreach ($GastosArticulosVenta as $key => $value) {
+            for ($i=0; $i < count($value); $i++) {
+                gastos_articulo_venta_anuales::updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_gasto_articulo_venta' => $key,
+                        'estudio_id' => $estudio->id,
+                        'mes' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
+        // TODO: Almacenmos los ingresos.
+        foreach ($ingresos as $key => $value) {
+            for ($i=0; $i < count($value); $i++) {
+                ingresos_anuales_v2:: updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_ingresos_anuales' => $key,
+                        'estudio_id' => $estudio->id,
+                        'mes' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
 
     }
 
