@@ -146,7 +146,7 @@ class flujoEfectivoMensualController extends Controller
         }
         // * Envio de datos a la vista.
         return view('plan_financiero.flujoEfectivoAnual', [
-            'titulo' => "HOLA",
+            'titulo' => "Flujo de efectivo anual",
             // TODO: Gastos preoperativos
             'dataGastosPreoperativoAnuales' => $dataGastosPreoperativoAnuales,
             'dataGastosPreoperativosMensuales' => $dataGastosPreoperativosMensuales,
@@ -180,7 +180,7 @@ class flujoEfectivoMensualController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

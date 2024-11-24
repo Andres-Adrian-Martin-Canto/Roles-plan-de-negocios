@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $titulo }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/flujoEfectivoAnualCincoAnios.js'])
 </head>
 
 <body>
@@ -66,7 +67,7 @@
                     </tr>
                 </thead>
                 {{-- TODO: Gastos preoperativos --}}
-                <tbody>
+                <tbody id="gastos_preoperativos">
                     {{-- TODO: Si existen los gastos preoperativos anuales --}}
                     @if (count($dataGastosPreoperativoAnuales) > 0)
                         @foreach ($dataGastosPreoperativoAnuales as $id_pertenece => $secondArray)
@@ -106,7 +107,7 @@
                 </tbody>
                 {{-- TODO: Utilidades Gastos Preoperativos --}}
                 <thead>
-                    <tr id="costosFijos">
+                    <tr id="Total_Gastos_Preoperativos">
                         <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
                             width="15%">
                             Total Gastos Preoperativos: </th>
@@ -163,7 +164,7 @@
                     </tr>
                 </thead>
                 {{-- TODO: Body de gastos --}}
-                <tbody>
+                <tbody id="gastos">
                     {{-- Si existen los anuales entrara aqui --}}
                     @if (count($dataGastosAnuales) > 0)
                         @foreach ($dataGastosAnuales as $id_pertenece => $secondArray)
@@ -203,7 +204,7 @@
                 </tbody>
                 {{-- TODO: Utilidades de los GASTOS por año --}}
                 <thead>
-                    <tr id="costosVariable">
+                    <tr id="Total_gastos">
                         <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
                             width="15%">
                             Total gastos: </th>
@@ -260,7 +261,7 @@
                     </tr>
                 </thead>
                 {{-- TODO: Cuerpo de Gastos de articulos de venta --}}
-                <tbody>
+                <tbody id="Gastos_articulos_venta">
                     {{-- Si existen los anuales entrara aqui --}}
                     @if (count($dataGastos_Articulos_Venta_Anuales) > 0)
                         @foreach ($dataGastos_Articulos_Venta_Anuales as $id_pertenece => $secondArray)
@@ -300,7 +301,7 @@
                 </tbody>
                 {{-- TODO: Utilidades de Gastos de articulos de venta --}}
                 <thead>
-                    <tr id="ingresos">
+                    <tr id="Total_Gastos_articulos_venta">
                         <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
                             width="15%">
                             Total Gastos de articulos de venta: </th>
@@ -357,7 +358,7 @@
                     </tr>
                 </thead>
                 {{-- TODO: Cuerpo de Ingresos --}}
-                <tbody>
+                <tbody id="ingresos">
                     {{-- Si existen los anuales entrara aqui --}}
                     @if (count($ingresosAnuales) > 0)
                         @foreach ($ingresosAnuales as $id_pertenece => $secondArray)
@@ -397,10 +398,10 @@
                 </tbody>
                 {{-- TODO: Utilidades de Gastos de articulos de venta --}}
                 <thead>
-                    <tr id="ingresos">
+                    <tr id="Total_ingresos">
                         <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
                             width="15%">
-                            Total Gastos de articulos de venta: </th>
+                            Total ingresos:</th>
                         <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
                             width="7%"></th>
                         <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
