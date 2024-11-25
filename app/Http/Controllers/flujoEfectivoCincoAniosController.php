@@ -9,6 +9,10 @@ use App\Models\Plan_de_negocio;
 use App\Models\gasto_preoperativo;
 use Illuminate\Support\Facades\Log;
 use App\Models\gasto_de_articulo_de_venta;
+use App\Models\gastos_articulo_venta_cinco_anios;
+use App\Models\gastos_cinco_anios;
+use App\Models\gastos_preoperativos_cinco_anios;
+use App\Models\ingresos_v2_cinco_anios;
 
 class flujoEfectivoCincoAniosController extends Controller
 {
@@ -187,9 +191,75 @@ class flujoEfectivoCincoAniosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request , Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $estudio = $plan_de_negocio->estudioFinancieroV2;
+        $estructuraConvertida = json_decode($request->getContent(), true);
+        $GastosPreoperativos = $estructuraConvertida[0];
+        $gastos = $estructuraConvertida[1];
+        $GastosArticulosVenta = $estructuraConvertida[2];
+        $ingresos = $estructuraConvertida[3];
+
+        // TODO: Almacenando o actualizando los Gastos Preoperativos
+        foreach ($GastosPreoperativos as $key => $value) {
+            for ($i = 0; $i < count($value); $i++) {
+                gastos_preoperativos_cinco_anios::updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_gasto_mensual_preoperativo' => $key,
+                        'estudio_id' => $estudio->id,
+                        'anio' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
+        // TODO: Almacenando o actualizando los Gastos
+        foreach ($gastos as $key => $value) {
+            for ($i = 0; $i < count($value); $i++) {
+                gastos_cinco_anios::updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_gasto_mensual' => $key,
+                        'estudio_id' => $estudio->id,
+                        'anio' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
+        // TODO: Almacenamos gastos de articulos de venta
+        foreach ($GastosArticulosVenta as $key => $value) {
+            for ($i=0; $i < count($value); $i++) {
+                gastos_articulo_venta_cinco_anios::updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_gasto_articulo_venta' => $key,
+                        'estudio_id' => $estudio->id,
+                        'anio' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
+        // TODO: Almacenmos los ingresos.
+        foreach ($ingresos as $key => $value) {
+            for ($i=0; $i < count($value); $i++) {
+                ingresos_v2_cinco_anios:: updateOrCreate(
+                    ['id' => $value[$i][0]],
+                    [
+                        'id_ingresos_anuales' => $key,
+                        'estudio_id' => $estudio->id,
+                        'anio' => $i + 1,
+                        'monto' => $value[$i][1]
+                    ]
+                );
+            }
+        }
+
     }
 
     /**

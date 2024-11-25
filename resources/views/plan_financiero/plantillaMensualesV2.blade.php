@@ -21,7 +21,7 @@
     {{-- Las dos partes --}}
     <div class="flex justify-center items-start 2xl:px-10 flex-wrap gap-10 w-full h-full ">
         {{-- Es el menu del lador izquierdo --}}
-        <div class="relative rounded-lg border-none card w-1/6 h-full bg-white 2xl:p-10 p-6 mt-9 dark:bg-gray-800">
+        <div class="relative rounded-lg border-none card w-1/6 h-full bg-white 2xl:pl-10 p-6 mt-9 dark:bg-gray-800">
             @include('plan_financiero.menuIzquierdo')
         </div>
         {{-- Lado derecho --}}
