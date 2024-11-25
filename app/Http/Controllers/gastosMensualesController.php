@@ -23,7 +23,7 @@ class gastosMensualesController extends Controller
         $columnaCuarta = "Total";
         // * Pregunta si no existe el estudio entonces lo va a crear.
         if (!$estudio) {
-            estudio_financiero_v2::create([
+            $estudio = estudio_financiero_v2::create([
                 'plan_de_negocio_id' => $plan_de_negocio->id,
                 'total_gastos_mensuales_mensuales' => 0,
                 'total_gastos_preoperativos_mensuales' => 0,
