@@ -16,5 +16,5 @@ class ingresos_v2_cinco_anios extends Model
         'monto'
     ];
 
-    protected $table = "ingresos_anuales_v2";
+    protected $table = "ingresos_v2_cinco_anios";
 }

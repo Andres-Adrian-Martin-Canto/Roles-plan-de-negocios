@@ -19,7 +19,7 @@ class estudio_financiero_v2 extends Model
 
     protected $table = 'estudio_financiero_v2';
 
-    // TODO: Relaciones
+    // TODO: Relaciones gastos preoperativos
 
     // * Relacion para obtener los gastos Preoperativos mensuales
     public function gastoPreoperativo()
@@ -34,6 +34,11 @@ class estudio_financiero_v2 extends Model
         return $this->hasMany(gastos_preoperativos_anuales::class, 'estudio_id');
     }
 
+    public function gastosPreoperativosCincoAnios() {
+        return $this->hasMany(gastos_preoperativos_cinco_anios::class, 'estudio_id');
+    }
+
+    // TODO: Gastos
     // * Relacion para obtener los gastos mensuales
     public function gastosMensuales()
     {
@@ -44,6 +49,10 @@ class estudio_financiero_v2 extends Model
     public function gastosAnuales()
     {
         return $this->hasMany(gastos_anuales::class, 'estudio_id');
+    }
+
+    public function gastosCincoAnios()  {
+        return $this->hasMany(gastos_cinco_anios::class, 'estudio_id');
     }
 
     // TODO: Relacion de gastos de articulos de venta.
@@ -57,6 +66,10 @@ class estudio_financiero_v2 extends Model
         return $this->hasMany(gastos_articulo_venta_anuales::class, 'estudio_id');
     }
 
+    public function gastos_articulos_venta_cinco_anios() {
+        return $this->hasMany(gastos_articulo_venta_cinco_anios::class, 'estudio_id');
+    }
+
     // TODO: Relacion de ingresos.
     // * Relacion para ingresos mensuales
     public function ingresos_Mensuales() {
@@ -66,5 +79,10 @@ class estudio_financiero_v2 extends Model
     //* Relacion para ingresos anuales
     public function ingresos_Anuales() {
         return $this->hasMany(ingresos_anuales_v2::class, 'estudio_id');
+    }
+
+    // * Relacion para ingresos cinco anios
+    public function ingresoso_Cinco_Anios() {
+        return $this->hasMany(ingresos_v2_cinco_anios::class, 'estudio_id');
     }
 }

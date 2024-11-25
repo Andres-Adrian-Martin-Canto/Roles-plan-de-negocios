@@ -164,7 +164,7 @@ class flujoEfectivoMensualController extends Controller
             // TODO: Boton se activara
             'botonActivado' => $botonActivado,
             // TODO: RUta dinamica
-            'ruta' => route('plan_de_negocio.flujoEfectivoMensual.store', $plan_de_negocio),
+            'ruta' => route('plan_de_negocio.flujoEfectivoCincoAnios.store', $plan_de_negocio),
             'plan_de_negocio' => $plan_de_negocio
         ]);
     }

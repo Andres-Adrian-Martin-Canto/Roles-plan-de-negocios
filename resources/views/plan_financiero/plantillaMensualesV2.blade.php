@@ -88,8 +88,10 @@
             </div>
             {{-- TODO: Boton para guardar --}}
             <div class="flex justify-center py-3">
+                {{--  !!! Corregir esta mal este apartado --}}
                 @if (count($datos_anuales) > 0)
                     {{-- TODO: Inserto la urlDinamica --}}
+                    {{--  !!! Corregir esta mal este apartado --}}
                     <button id="miBoton" urlDinamica={{ $url }} informacion={{ count($datos_anuales) }}
                         class="w-1/4  bg-green-500 text-white font-bold py-1  rounded">
                         Guardar cambios
