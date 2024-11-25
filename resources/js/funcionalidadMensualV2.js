@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Copio la matriz
         let copiaMatriz = matrizMultidimensional.slice();
         // Creo una variable para obtener la respuesta de si desea confirmar.
-        const result = true;
+        let result = true;
         // Pregunto si existen otros datos en los anuales.
         if (miBoton.getAttribute('informacion')) {
             // Mando a preguntar si quiere confirmar y se borren los datos de la tabla para los anuales o cinco anios.

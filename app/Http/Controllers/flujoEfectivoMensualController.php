@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\gasto_de_articulo_de_venta;
-use App\Models\gasto_mensual;
-use App\Models\gasto_preoperativo;
-use App\Models\gastos_anuales;
-use App\Models\gastos_articulo_venta_anuales;
-use App\Models\gastos_preoperativos_anuales;
 use App\Models\ingreso_v2;
-use App\Models\ingresos_anuales_v2;
 use Illuminate\Http\Request;
+use App\Models\gasto_mensual;
+use App\Models\gastos_anuales;
 use App\Models\Plan_de_negocio;
+use App\Models\gasto_preoperativo;
+use App\Models\ingresos_anuales_v2;
+use Illuminate\Support\Facades\Log;
+use App\Models\gasto_de_articulo_de_venta;
+use App\Models\gastos_preoperativos_anuales;
+use App\Models\gastos_articulo_venta_anuales;
 
 class flujoEfectivoMensualController extends Controller
 {
@@ -164,7 +165,7 @@ class flujoEfectivoMensualController extends Controller
             // TODO: Boton se activara
             'botonActivado' => $botonActivado,
             // TODO: RUta dinamica
-            'ruta' => route('plan_de_negocio.flujoEfectivoCincoAnios.store', $plan_de_negocio),
+            'ruta' => route('plan_de_negocio.flujoEfectivoAnual.store', $plan_de_negocio),
             'plan_de_negocio' => $plan_de_negocio
         ]);
     }
@@ -188,7 +189,7 @@ class flujoEfectivoMensualController extends Controller
         $gastos = $estructuraConvertida[1];
         $GastosArticulosVenta = $estructuraConvertida[2];
         $ingresos = $estructuraConvertida[3];
-
+        Log::info("entro aqui");
         // TODO: Almacenando o actualizando los Gastos Preoperativos
         foreach ($GastosPreoperativos as $key => $value) {
             for ($i = 0; $i < count($value); $i++) {
