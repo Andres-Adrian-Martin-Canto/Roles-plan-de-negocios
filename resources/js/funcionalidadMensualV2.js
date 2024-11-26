@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Creo una variable para obtener la respuesta de si desea confirmar.
         let result = true;
         // Pregunto si existen otros datos en los anuales.
-        if (miBoton.getAttribute('informacion')) {
+        if (miBoton.getAttribute('informacion') !== '0') {
             // Mando a preguntar si quiere confirmar y se borren los datos de la tabla para los anuales o cinco anios.
             result = await customConfirm('Tienes información en las tablas anuales. Si aceptas, se van a borrar los datos anuales.');
         }
