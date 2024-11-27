@@ -37,6 +37,7 @@ use App\Http\Controllers\GruposDeTrabajoController;
 use App\Http\Controllers\CapturarResultadoController;
 use App\Http\Controllers\ImagenCorporativaController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\balanceGeneralAnualController;
 use App\Http\Controllers\gastosPreoperativosController;
 use App\Http\Controllers\flujoEfectivoMensualController;
 use App\Http\Controllers\CulturaOrganizacionalController;
@@ -101,7 +102,7 @@ Route::middleware('auth')->group(function () {
             'plan_de_negocio.gastosMensuales' =>  gastosMensualesController::class,
             'plan_de_negocio.gastos-articulo-venta' => gastos_articulos_ventasController::class,
             'plan_de_negocio.ingresosV2' => ingresosV2Controller::class,
-            'plan_de_negocio.flujoEfectivoAnual' => flujoEfectivoMensualController::class,
+            'plan_de_negocio.balanceGeneralAnual' => balanceGeneralAnualController::class,
             'plan_de_negocio.flujoEfectivoCincoAnios' => flujoEfectivoCincoAniosController::class
         ]);
     });

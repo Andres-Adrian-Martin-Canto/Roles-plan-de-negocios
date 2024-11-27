@@ -72,7 +72,7 @@
             <h3 class="text-gray-400 leading-tight pt-1.5">Ingresos</h3>
         </li>
     </a>
-    <a href="{{ route('plan_de_negocio.flujoEfectivoAnual.index', $plan_de_negocio) }}">
+    <a href="{{ route('plan_de_negocio.balanceGeneralAnual.index', $plan_de_negocio) }}">
         <li class="mb-10 ms-6">
             <span
                 class="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 ring-4  ring-gray-900 bg-gray-700">
@@ -82,7 +82,7 @@
                         d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                 </svg>
             </span>
-            <h3 class="text-gray-400 leading-tight lg:text-sm lg:pt-1 2xl:pt-1.5">Flujo de efectivo anual</h3>
+            <h3 class="text-gray-400 leading-tight lg:text-sm lg:pt-1 2xl:pt-1.5">Balance general anual</h3>
         </li>
     </a>
     <a href="{{ route('plan_de_negocio.flujoEfectivoCincoAnios.index', $plan_de_negocio) }}">
