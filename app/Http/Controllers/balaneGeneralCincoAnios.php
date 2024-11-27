@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ingreso_v2;
-use Illuminate\Http\Request;
-use App\Models\gasto_mensual;
-use App\Models\Plan_de_negocio;
-use App\Models\gasto_preoperativo;
-use Illuminate\Support\Facades\Log;
 use App\Models\gasto_de_articulo_de_venta;
+use App\Models\gasto_mensual;
+use App\Models\gasto_preoperativo;
 use App\Models\gastos_articulo_venta_cinco_anios;
 use App\Models\gastos_cinco_anios;
 use App\Models\gastos_preoperativos_cinco_anios;
+use App\Models\ingreso_v2;
 use App\Models\ingresos_v2_cinco_anios;
+use App\Models\Plan_de_negocio;
+use Illuminate\Http\Request;
 
-class flujoEfectivoCincoAniosController extends Controller
+class balaneGeneralCincoAnios extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -174,11 +173,10 @@ class flujoEfectivoCincoAniosController extends Controller
             // TODO: Boton se activara
             'botonActivado' => $botonActivado,
             // TODO: RUta dinamica
-            'ruta' => route('plan_de_negocio.flujoEfectivoCincoAnios.store', $plan_de_negocio),
+            'ruta' => route('plan_de_negocio.balanceGeneralCincoAnios.store', $plan_de_negocio),
             'plan_de_negocio' => $plan_de_negocio
         ]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -191,7 +189,7 @@ class flujoEfectivoCincoAniosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request , Plan_de_negocio $plan_de_negocio)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
         $estudio = $plan_de_negocio->estudioFinancieroV2;
         $estructuraConvertida = json_decode($request->getContent(), true);
@@ -259,7 +257,6 @@ class flujoEfectivoCincoAniosController extends Controller
                 );
             }
         }
-
     }
 
     /**

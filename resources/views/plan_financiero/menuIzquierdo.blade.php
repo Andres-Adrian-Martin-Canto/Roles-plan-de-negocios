@@ -85,7 +85,7 @@
             <h3 class="text-gray-400 leading-tight lg:text-sm lg:pt-1 2xl:pt-1.5">Balance general anual</h3>
         </li>
     </a>
-    <a href="{{ route('plan_de_negocio.flujoEfectivoCincoAnios.index', $plan_de_negocio) }}">
+    <a href="{{ route('plan_de_negocio.balanceGeneralCincoAnios.index', $plan_de_negocio) }}">
         <li class="ms-6">
             <span
                 class="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 ring-4  ring-gray-900 bg-gray-700">
