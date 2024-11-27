@@ -23,6 +23,10 @@ class flujoEfectivoMensualController extends Controller
     {
         // Obtengo el estudio financiero
         $estudio = $plan_de_negocio->estudioFinancieroV2;
+        // TODO: Condicion de que si no existe algun apartado entoces regresara un mensaje de error.
+        if (count($estudio->gastoPreoperativo) < 1 || count($estudio->gastosMensuales) < 1 || count($estudio->gastos_articulos_venta_mensual) < 1 || count($estudio->ingresos_Mensuales) < 1) {
+            return redirect()->back()->with('mensaje', 'No se pueden ingresar al balance general anual hasta que ingreses datos de cada apartado.');
+        }
         // Variable para saber si el boton aparecera activo o no.
         $botonActivado = false;
         // Variables para almacenar el dato mensual o anual dependiendo.
