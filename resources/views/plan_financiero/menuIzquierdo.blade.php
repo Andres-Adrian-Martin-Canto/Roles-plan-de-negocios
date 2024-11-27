@@ -95,7 +95,7 @@
                         d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                 </svg>
             </span>
-            <h3 class="text-gray-400 leading-tight lg:text-sm lg:pt-1 2xl:pt-1.5">Flujo de efectivo años</h3>
+            <h3 class="text-gray-400 leading-tight lg:text-sm lg:pt-1 2xl:pt-1.5">Balance general cinco años</h3>
         </li>
     </a>
 </ol>

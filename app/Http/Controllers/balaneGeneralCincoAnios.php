@@ -22,6 +22,11 @@ class balaneGeneralCincoAnios extends Controller
     {
         // Obtengo el estudio financiero
         $estudio = $plan_de_negocio->estudioFinancieroV2;
+        if (count($estudio->gastosPreoperativosAnuales) < 1 ||
+        count($estudio->gastosAnuales) < 1 || count($estudio->gastos_articulos_venta_anuales) < 1
+        || count($estudio->ingresos_Anuales) < 1) {
+            return redirect()->back()->with('mensaje', 'No se pueden ingresar al balance general a cinco años hasta que ingreses datos anuales.');
+        }
         // Variable para saber si el boton aparecera activo o no.
         $botonActivado = false;
         // Variables para almacenar el dato mensual o anual dependiendo.
