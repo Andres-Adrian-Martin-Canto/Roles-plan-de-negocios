@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
      * TODO: Evento para mandar peticion de guardar.
      */
     miBoton.onclick = async function () {
-        let matriz1 = matrizBienesInmuebles.slice();
-        let matriz2 = matrizVehiculos.slice();
-        let matriz3 = matrizMaquinaria.slice();
-        let matriz4 = matrizMobiliario.slice();
+        let matriz1 = matrizMobiliario.slice();
+        let matriz2 = matrizMaquinaria.slice();
+        let matriz3 = matrizVehiculos.slice();
+        let matriz4 = matrizBienesInmuebles.slice();
         let result = true;
         // * Validar si el boton tiene el atributo informacion.
         if (miBoton.getAttribute('informacion')) {
@@ -505,6 +505,7 @@ document.addEventListener("DOMContentLoaded", function () {
             calcularLosFooterTotales(8);
             calcularLosFooterTotales(9);
             calcularLosFooterTotales(10);
+            activarBoton();
         });
     }
 
