@@ -85,6 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
             let inputs = fila.querySelectorAll("input");
             // arreglo que guardara los valores de los inputs y luego lo agregara a matriz correspondiente.
             let arrayValores = [];
+            // * Llamar funcion para crear button de eliminar.
+            let botonYaCreado = fila.querySelector('button');
+            if (botonYaCreado) {
+                eventoBotonEliminar(botonYaCreado , matriz, tipo);
+            }
             // Recorremos los inputs
             inputs.forEach(function (input) {
                 // Evento para el input
@@ -477,7 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
         thTotal[posicionColumna - 2].textContent = total.toFixed(2);
     }
 
-    
+
     /**
      *  TODO: Funcion para calcular el footer la depreciacion mensual FOOTER.
      * @param {*} total

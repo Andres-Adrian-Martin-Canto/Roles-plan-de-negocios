@@ -54,9 +54,48 @@
                 </thead>
                 {{-- TODO: Body de la parte Mobiliaria --}}
                 <tbody id="mobiliario">
-                    {{-- @foreach ( as )
-
-                    @endforeach --}}
+                    @foreach ($mobiliarios as $mobiliario)
+                        <tr>
+                            <td class="border">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$mobiliario->nombre}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$mobiliario->cantidad}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$mobiliario->valor_unitario}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($mobiliario->cantidad * $mobiliario->valor_unitario, 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $mobiliario->porcentaje_depreciacion }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($mobiliario->cantidad * $mobiliario->valor_unitario) * ($mobiliario->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_uno }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_dos }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $mobiliario->anio_tres }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_cuatro }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_cinco }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($mobiliario->anio_uno + $mobiliario->anio_dos + $mobiliario->anio_tres + $mobiliario->anio_cuatro + $mobiliario->anio_cinco, 2, '.', '')}}" disabled>
+                            </td>
+                            <td>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                            </td>
+                    @endforeach
                     <tr>
                         <td class="border">
                             <input class="w-full border rounded-sm px-2 py-1" type="text">
@@ -109,6 +148,48 @@
                 </thead>
                 {{-- TODO: Body de la parte maquinaria --}}
                 <tbody id="maquinaria">
+                    @foreach ($maquinarias as $maquinaria)
+                        <tr>
+                            <td class="border">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$maquinaria->nombre}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$maquinaria->cantidad}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$maquinaria->valor_unitario}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($maquinaria->cantidad * $maquinaria->valor_unitario, 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $maquinaria->porcentaje_depreciacion }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($maquinaria->cantidad * $maquinaria->valor_unitario) * ($maquinaria->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_uno }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_dos }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $maquinaria->anio_tres }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_cuatro }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_cinco }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($maquinaria->anio_uno + $maquinaria->anio_dos + $maquinaria->anio_tres + $maquinaria->anio_cuatro + $maquinaria->anio_cinco, 2, '.', '')}}" disabled>
+                            </td>
+                            <td>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                            </td>
+                    @endforeach
                     <tr>
                         <td class="border">
                             <input class="w-full border rounded-sm px-2 py-1" type="text">
@@ -161,6 +242,48 @@
                 </thead>
                 {{-- TODO: Body de la parte Vehiculos --}}
                 <tbody id="vehiculos">
+                    @foreach ($vehiculos as $vehiculo)
+                        <tr>
+                            <td class="border">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$vehiculo->nombre}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$vehiculo->cantidad}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$vehiculo->valor_unitario}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($vehiculo->cantidad * $vehiculo->valor_unitario, 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $vehiculo->porcentaje_depreciacion }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($vehiculo->cantidad * $vehiculo->valor_unitario) * ($vehiculo->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_uno }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_dos }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $vehiculo->anio_tres }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_cuatro }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_cinco }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($vehiculo->anio_uno + $vehiculo->anio_dos + $vehiculo->anio_tres + $vehiculo->anio_cuatro + $vehiculo->anio_cinco, 2, '.', '')}}" disabled>
+                            </td>
+                            <td>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                            </td>
+                    @endforeach
                     <tr>
                         <td class="border">
                             <input class="w-full border rounded-sm px-2 py-1" type="text">
@@ -213,6 +336,48 @@
                 </thead>
                 {{-- TODO: Body de la parte BIENES INMUEBLES --}}
                 <tbody>
+                    @foreach ($bienes as $biene)
+                        <tr>
+                            <td class="border">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$biene->nombre}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$biene->cantidad}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$biene->valor_unitario}}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($biene->cantidad * $biene->valor_unitario, 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $biene->porcentaje_depreciacion }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($biene->cantidad * $biene->valor_unitario) * ($biene->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_uno }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_dos }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $biene->anio_tres }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_cuatro }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_cinco }}">
+                            </td>
+                            <td class="border">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($biene->anio_uno + $biene->anio_dos + $biene->anio_tres + $biene->anio_cuatro + $biene->anio_cinco, 2, '.', '')}}" disabled>
+                            </td>
+                            <td>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                            </td>
+                    @endforeach
                     <tr>
                         <td class="border">
                             <input class="w-full border rounded-sm px-2 py-1" type="text">
@@ -263,7 +428,8 @@
                             Total Mobiliario:
                         </th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
-                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">Depreciacion total:</th>
+                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">
+                            Depreciacion total:</th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
@@ -276,10 +442,12 @@
                 {{-- TODO: Totales Maquinaria --}}
                 <thead>
                     <tr id="totales-maquinaria" class="bg-yellow-100">
-                        <th class="border text-center text-xs border-gray-500   text-black" width="27%" colspan="3">
+                        <th class="border text-center text-xs border-gray-500   text-black" width="27%"
+                            colspan="3">
                             Total Maquinaria: </th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
-                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">Depreciacion total:</th>
+                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">
+                            Depreciacion total:</th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
@@ -292,11 +460,13 @@
                 {{-- TODO: Totales Vehiculos --}}
                 <thead>
                     <tr id="total-vehiculos" class="bg-yellow-100">
-                        <th class="border text-center text-xs border-gray-500   text-black" width="27%" colspan="3">
+                        <th class="border text-center text-xs border-gray-500   text-black" width="27%"
+                            colspan="3">
                             Total Vehiculos:
                         </th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
-                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">Depreciacion total:</th>
+                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">
+                            Depreciacion total:</th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
@@ -309,10 +479,12 @@
                 {{-- TODO: Totales Bienes inmuebles --}}
                 <thead>
                     <tr id="total-bienes-inmuebles" class="bg-yellow-100">
-                        <th class="border text-center text-xs border-gray-500   text-black" width="27%" colspan="3">
+                        <th class="border text-center text-xs border-gray-500   text-black" width="27%"
+                            colspan="3">
                             Total Bienes inmuebles: </th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
-                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">Depreciacion total:</th>
+                        <th class="border text-xs text-center border-gray-500   text-black" width="7%">
+                            Depreciacion total:</th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
@@ -324,10 +496,12 @@
                 </thead>
                 <thead>
                     <tr id="total-bienes-muebles-e-inmuebles" class="bg-yellow-100">
-                        <th class="border text-center text-xs border-gray-500 text-black" width="27%" colspan="3">
+                        <th class="border text-center text-xs border-gray-500 text-black" width="27%"
+                            colspan="3">
                             Total Bienes Muebles e Inmuebles: </th>
                         <th class="border text-xs text-right border-gray-500 text-black" width="7%"></th>
-                        <th class="border text-xs text-center border-gray-500 text-black" width="7%">Depreciacion total:</th>
+                        <th class="border text-xs text-center border-gray-500 text-black" width="7%">Depreciacion
+                            total:</th>
                         <th class="border text-xs text-right border-gray-500 text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500 text-black" width="7%"></th>
                         <th class="border text-xs text-right border-gray-500 text-black" width="7%"></th>

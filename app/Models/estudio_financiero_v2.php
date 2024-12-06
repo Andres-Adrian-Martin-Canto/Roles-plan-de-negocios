@@ -85,4 +85,23 @@ class estudio_financiero_v2 extends Model
     public function ingresoso_Cinco_Anios() {
         return $this->hasMany(ingresos_v2_cinco_anios::class, 'estudio_id');
     }
+
+    // TODO: Relacion para tablas de inversion inicial
+    // * Relacion para obtener los bienes inmuebles mensuales
+    public function bienes_inmuebles_mensuales()  {
+        return $this->hasMany(bienes_inmuebles_mensuales::class, 'estudio_id');
+    }
+    // * Relacion para obtener los vehiculos mensuales
+    public function vehiculos_mensuales() {
+        return $this->hasMany(vehiculos_mensuales::class, 'estudio_id');
+    }
+    // * Relacion para obtener las maquinarias mensuales
+    public function maquinarias_mensuales() {
+        return $this->hasMany(maquinarias_mensuales::class, 'estudio_id');
+    }
+
+    // * Relacion para obtener los mobiliarios mensuales
+    public function mobiliario_mensual()  {
+        return $this->hasMany(mobiliarios_mensuales::class, 'estudio_id');
+    }
 }
