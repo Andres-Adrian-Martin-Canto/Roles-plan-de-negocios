@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\estudio_financiero_v2;
 use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class inversionInicialController extends Controller
 {
@@ -28,7 +29,10 @@ class inversionInicialController extends Controller
         $vehiculos = $estudio->vehiculos_mensuales;
         $maquinarias = $estudio->maquinarias_mensuales;
         $mobiliarios = $estudio->mobiliario_mensual;
-        return view('plan_financiero.inversionInicial', compact('plan_de_negocio', 'estudio', 'bienes', 'vehiculos', 'maquinarias', 'mobiliarios'));
+        $url = route('plan_de_negocio.inversionInicial.store', $plan_de_negocio);
+        // !!! Esta mal porque tienen que ser los anuales.
+        $hayDatos = $bienes->count() > 0 || $vehiculos->count() > 0 || $maquinarias->count() > 0 || $mobiliarios->count() > 0;
+        return view('plan_financiero.inversionInicial', compact('plan_de_negocio', 'estudio', 'bienes', 'vehiculos', 'maquinarias', 'mobiliarios', 'url', 'hayDatos'));
     }
 
     /**
@@ -42,9 +46,10 @@ class inversionInicialController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
         //
+        Log::info($request->all());
     }
 
     /**

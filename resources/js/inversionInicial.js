@@ -1,8 +1,12 @@
+// * Importamos los botones asi como los divs de los mensajes de error y que se guardo correctamente.
+import { toastDiv, newToastDiv, newMessageP, botonCerrar, divMensaje } from './mensajes.js';
+
 document.addEventListener("DOMContentLoaded", function () {
     var matrizMobiliario = [];
     var matrizMaquinaria = [];
     var matrizVehiculos = [];
     var matrizBienesInmuebles = [];
+    const miBoton = document.getElementById("miBoton");
     // Obtenemos los tbodys de la tabla
     let tbodies = document.querySelectorAll('#miTabla tbody');
     // Le asignamos al body mobiliario los valores.
@@ -54,7 +58,181 @@ document.addEventListener("DOMContentLoaded", function () {
     calcularLosFooterTotales(10);
 
 
+    /**
+     * TODO: Funcion para activar el boton de guardado.
+     */
+    function activarBoton() {
+        // * Si el boton esta deshabilitado entonces hara lo siguiente.
+        if (miBoton.disabled) {
+            // Replaza el fondo por otro.
+            miBoton.classList.replace('bg-green-800', 'bg-green-500');
+            // Replaza el color del texto.
+            miBoton.classList.replace('text-gray-400', 'text-white');
+            // Activa el boton.
+            miBoton.disabled = false;
+        }
+    }
 
+
+    /**
+     * ------------------------------------------------------------------------------------------
+     * TODO: Evento para mandar peticion de guardar.
+     */
+    miBoton.onclick = async function () {
+        let matriz1 = matrizBienesInmuebles.slice();
+        let matriz2 = matrizVehiculos.slice();
+        let matriz3 = matrizMaquinaria.slice();
+        let matriz4 = matrizMobiliario.slice();
+        let result = true;
+        // * Validar si el boton tiene el atributo informacion.
+        if (miBoton.getAttribute('informacion')) {
+            result = await customConfirm("Tienes información en las tablas anuales. Si aceptas, se borrarán los datos anuales.");
+        }
+        // * Esperamos la respuesta del moda.
+        if (result) {
+            if (validarMatriz(matriz1) && validarMatriz(matriz2) && validarMatriz(matriz3) && validarMatriz(matriz4)) {
+                let matrizEnvio = [matriz1, matriz2, matriz3, matriz4];
+                // * Obtenemos la rua
+                let ruta = this.getAttribute("urlDinamica");
+                fetch(ruta, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                    },
+                    // * Enviar la matriz en formato JSON
+                    body: JSON.stringify(matrizEnvio),
+                }).then(Response => {
+                    if (Response.ok) {
+                        toastDiv.style.display = 'block';
+                    } else {
+                        throw new Error("Error en la solicitud");
+                    }
+                });
+            } else {
+                // Agregar el texto de la moda.
+                newMessageP.textContent = "Tienes datos vacíos en una fila.";
+                // Mostrar el moda.
+                newToastDiv.style.display = 'block';
+            }
+        }
+    }
+
+
+    /**
+     *  TODO: Funcion para crear el moda.
+     */
+    async function customConfirm(message) {
+        return new Promise(resolve => {
+            const confirmDialog = document.createElement('div');
+            confirmDialog.innerHTML = `
+            <div class="fixed z-10 inset-0 overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                Datos anuales
+                            </h3>
+                            <div class="mt-2">
+                                <p class="text-sm leading-5 text-gray-500">
+                                    ${message}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-4 sm:flex justify-center sm:flex-row-reverse gap-2">
+                        <span class="flex w-full mt-3 rounded-md shadow-sm sm:w-auto">
+                            <button id="confirmBtn" type="button"
+                                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                Aceptar
+                            </button>
+                        </span>
+                        <span class="flex w-full mt-3 rounded-md shadow-sm sm:w-auto">
+                            <button id="cancelBtn" type="button"
+                                class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                Cancelar
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+            document.body.appendChild(confirmDialog);
+
+            document.getElementById('confirmBtn').addEventListener('click', () => {
+                document.body.removeChild(confirmDialog);
+                resolve(true);
+            });
+
+            document.getElementById('cancelBtn').addEventListener('click', () => {
+                document.body.removeChild(confirmDialog);
+                resolve(false);
+            });
+        });
+    }
+
+
+    /**
+     *  TODO: Validar matriz que no tenga campos vacios.
+     * @param {*} copiaMatriz
+     * @returns
+     */
+    function validarMatriz(copiaMatriz) {
+        if (copiaMatriz.length > 1) {
+            copiaMatriz.pop();
+            for (let fila = copiaMatriz.length - 1; fila >= 0; fila--) {
+                if (copiaMatriz[fila].every(elemento => elemento === "")) {
+                    copiaMatriz.splice(fila, 1); // Elimina la fila vacía
+                }
+            }
+            // Recorremos cada fila de la matriz
+            for (let fila of copiaMatriz) {
+                let contadorDatos = 0;
+                // Contamos cuántas celdas tienen datos en cada fila
+                for (let celda of fila) {
+                    if (celda !== '') {
+                        contadorDatos++;
+                    }
+                }
+                // Valida que la fila tenga todos los valores.
+                if (contadorDatos < copiaMatriz[0].length) {
+                    return false;
+                }
+            }
+            // Si llegamos aquí, significa que todas las filas pasaron la validación
+            return true;
+        } else {
+            // Recorremos cada fila de la matriz
+            for (let fila of copiaMatriz) {
+                let contadorDatos = 0;
+                // Contamos cuántas celdas tienen datos en cada fila
+                for (let celda of fila) {
+                    if (celda !== '') {
+                        contadorDatos++;
+                    }
+                }
+                // Valida que la fila tenga todos los valores.
+                if (contadorDatos > 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+
+    /**
+     *  TODO: Calcular la depreciacion total de 5 anios por cada anio.
+     * @param {*} tipo
+     * @param {*} matriz
+     * @param {*} posicionColumna
+     */
     function calcularDepreciacionTotalCincoAniosPorCadaAnio(tipo, matriz, posicionColumna) {
         let th = document.querySelectorAll(`#${tipo} th`);
         // * variable que me sirve para calcular el total de bienes.
@@ -88,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // * Llamar funcion para crear button de eliminar.
             let botonYaCreado = fila.querySelector('button');
             if (botonYaCreado) {
-                eventoBotonEliminar(botonYaCreado , matriz, tipo);
+                eventoBotonEliminar(botonYaCreado, matriz, tipo);
             }
             // Recorremos los inputs
             inputs.forEach(function (input) {
@@ -133,6 +311,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     // * Se actualiza el valor del diccionario.
                     matriz[filaIndex][posicionColumna] = input.value;
                     validacionCrearFila(matriz, filaIndex, tdPadre.parentElement, tipo);
+                    // * llamar activar boton.
+                    activarBoton();
                 }
             } else { // Evento para los otros inputs
                 if (input.value.trim() && regex.test(input.value)) {
@@ -157,10 +337,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                         // * Llamar funcion para validar si la fila esta completa, creara otra fila.
                         validacionCrearFila(matriz, filaIndex, tdPadre.parentElement, tipo);
-                        // Crear condicion que diga si la posicion de la columna es 3 entonces hara lo siguiente, que seria calcular solo el mensual.
-                        // console.log(matriz);
-
-                        // !!! Llamar funcion para activar el boton de guardar.
+                        // *Llamar funcion para activar el boton de guardar.
+                        activarBoton();
                     }
                 } else {
                     // Le asignamos el valor 0
@@ -179,8 +357,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     calcularLosFooterTotales(posicionColumna);
                     // * Llamar funcion para validar si la fila esta completa, creara otra fila.
                     validacionCrearFila(matriz, filaIndex, tdPadre.parentElement, tipo);
-                    // !!! Llamar funcion para activar el boton de guardar.
-                    alert("Solo se permiten numeros");
+                    // Llamar funcion para activar el boton de guardar.
+                    activarBoton();
+                    // !!!  Mensaje de alerta
+                    // Agregar el texto de la moda.
+                    newMessageP.textContent = "Solo se permiten numeros.";
+                    // Mostrar el moda.
+                    newToastDiv.style.display = 'block';
                 }
             }// Fin de la condicion
         }); // Fin del evento

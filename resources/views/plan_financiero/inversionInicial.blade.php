@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/inversionInicial.js'])
     <title>Inversion inicial</title>
 </head>
@@ -57,43 +58,59 @@
                     @foreach ($mobiliarios as $mobiliario)
                         <tr>
                             <td class="border">
-                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$mobiliario->nombre}}">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->nombre }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$mobiliario->cantidad}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->cantidad }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$mobiliario->valor_unitario}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->valor_unitario }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($mobiliario->cantidad * $mobiliario->valor_unitario, 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text"
+                                    value="{{ number_format($mobiliario->cantidad * $mobiliario->valor_unitario, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $mobiliario->porcentaje_depreciacion }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $mobiliario->porcentaje_depreciacion }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($mobiliario->cantidad * $mobiliario->valor_unitario) * ($mobiliario->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text"
+                                    value="{{ number_format(($mobiliario->cantidad * $mobiliario->valor_unitario * ($mobiliario->porcentaje_depreciacion / 100)) / 12, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_uno }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->anio_uno }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_dos }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->anio_dos }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $mobiliario->anio_tres }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $mobiliario->anio_tres }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_cuatro }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->anio_cuatro }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $mobiliario->anio_cinco }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $mobiliario->anio_cinco }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($mobiliario->anio_uno + $mobiliario->anio_dos + $mobiliario->anio_tres + $mobiliario->anio_cuatro + $mobiliario->anio_cinco, 2, '.', '')}}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text"
+                                    value="{{ number_format($mobiliario->anio_uno + $mobiliario->anio_dos + $mobiliario->anio_tres + $mobiliario->anio_cuatro + $mobiliario->anio_cinco, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                                <button
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
                             </td>
                     @endforeach
                     <tr>
@@ -151,43 +168,62 @@
                     @foreach ($maquinarias as $maquinaria)
                         <tr>
                             <td class="border">
-                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$maquinaria->nombre}}">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->nombre }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$maquinaria->cantidad}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->cantidad }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$maquinaria->valor_unitario}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->valor_unitario }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($maquinaria->cantidad * $maquinaria->valor_unitario, 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format($maquinaria->cantidad * $maquinaria->valor_unitario, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $maquinaria->porcentaje_depreciacion }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $maquinaria->porcentaje_depreciacion }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($maquinaria->cantidad * $maquinaria->valor_unitario) * ($maquinaria->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format(($maquinaria->cantidad * $maquinaria->valor_unitario * ($maquinaria->porcentaje_depreciacion / 100)) / 12, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_uno }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->anio_uno }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_dos }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->anio_dos }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $maquinaria->anio_tres }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $maquinaria->anio_tres }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_cuatro }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->anio_cuatro }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $maquinaria->anio_cinco }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $maquinaria->anio_cinco }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($maquinaria->anio_uno + $maquinaria->anio_dos + $maquinaria->anio_tres + $maquinaria->anio_cuatro + $maquinaria->anio_cinco, 2, '.', '')}}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format($maquinaria->anio_uno + $maquinaria->anio_dos + $maquinaria->anio_tres + $maquinaria->anio_cuatro + $maquinaria->anio_cinco, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                                <button
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
                             </td>
                     @endforeach
                     <tr>
@@ -245,43 +281,62 @@
                     @foreach ($vehiculos as $vehiculo)
                         <tr>
                             <td class="border">
-                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$vehiculo->nombre}}">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->nombre }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$vehiculo->cantidad}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->cantidad }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$vehiculo->valor_unitario}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->valor_unitario }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($vehiculo->cantidad * $vehiculo->valor_unitario, 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format($vehiculo->cantidad * $vehiculo->valor_unitario, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $vehiculo->porcentaje_depreciacion }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $vehiculo->porcentaje_depreciacion }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($vehiculo->cantidad * $vehiculo->valor_unitario) * ($vehiculo->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format(($vehiculo->cantidad * $vehiculo->valor_unitario * ($vehiculo->porcentaje_depreciacion / 100)) / 12, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_uno }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->anio_uno }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_dos }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->anio_dos }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $vehiculo->anio_tres }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $vehiculo->anio_tres }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_cuatro }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->anio_cuatro }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $vehiculo->anio_cinco }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $vehiculo->anio_cinco }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($vehiculo->anio_uno + $vehiculo->anio_dos + $vehiculo->anio_tres + $vehiculo->anio_cuatro + $vehiculo->anio_cinco, 2, '.', '')}}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format($vehiculo->anio_uno + $vehiculo->anio_dos + $vehiculo->anio_tres + $vehiculo->anio_cuatro + $vehiculo->anio_cinco, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                                <button
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
                             </td>
                     @endforeach
                     <tr>
@@ -339,43 +394,62 @@
                     @foreach ($bienes as $biene)
                         <tr>
                             <td class="border">
-                                <input class="w-full border rounded-sm px-2 py-1" type="text" value="{{$biene->nombre}}">
+                                <input class="w-full border rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->nombre }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$biene->cantidad}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->cantidad }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{$biene->valor_unitario}}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->valor_unitario }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($biene->cantidad * $biene->valor_unitario, 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format($biene->cantidad * $biene->valor_unitario, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $biene->porcentaje_depreciacion }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $biene->porcentaje_depreciacion }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format((($biene->cantidad * $biene->valor_unitario) * ($biene->porcentaje_depreciacion / 100) / 12), 2, '.', '') }}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format(($biene->cantidad * $biene->valor_unitario * ($biene->porcentaje_depreciacion / 100)) / 12, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_uno }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->anio_uno }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_dos }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->anio_dos }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text" value="{{ $biene->anio_tres }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1 " type="text"
+                                    value="{{ $biene->anio_tres }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_cuatro }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->anio_cuatro }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text" value="{{ $biene->anio_cinco }}">
+                                <input class="w-full border text-right rounded-sm px-2 py-1" type="text"
+                                    value="{{ $biene->anio_cinco }}">
                             </td>
                             <td class="border">
-                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300" type="text" value="{{ number_format($biene->anio_uno + $biene->anio_dos + $biene->anio_tres + $biene->anio_cuatro + $biene->anio_cinco, 2, '.', '')}}" disabled>
+                                <input class="w-full border text-right rounded-sm px-2 py-1 bg-gray-300"
+                                    type="text"
+                                    value="{{ number_format($biene->anio_uno + $biene->anio_dos + $biene->anio_tres + $biene->anio_cuatro + $biene->anio_cinco, 2, '.', '') }}"
+                                    disabled>
                             </td>
                             <td>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
+                                <button
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Eliminar</button>
                             </td>
                     @endforeach
                     <tr>
@@ -515,7 +589,10 @@
         </div>
         {{-- TODO: Boton para guardar --}}
         <div class="flex justify-center py-3">
-
+            <button informacion='{{ $hayDatos }}' id="miBoton" urlDinamica={{ $url }}  disabled
+                class="w-1/4  bg-green-800 text-gray-400 font-bold py-1  rounded">
+                Guardar cambios
+            </button>
         </div>
     </div>
 
