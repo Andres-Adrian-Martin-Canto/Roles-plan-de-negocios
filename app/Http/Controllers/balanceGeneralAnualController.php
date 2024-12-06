@@ -151,7 +151,7 @@ class balanceGeneralAnualController extends Controller
             }
         }
         // * Envio de datos a la vista.
-        return view('plan_financiero.flujoEfectivoAnual', [
+        return view('plan_financiero.BalanceGeneralAnual', [
             'titulo' => "Flujo de efectivo anual",
             // TODO: Gastos preoperativos
             'dataGastosPreoperativoAnuales' => $dataGastosPreoperativoAnuales,
