@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class totalInversionInicial extends Controller
 {
@@ -14,8 +15,8 @@ class totalInversionInicial extends Controller
     {
         $estudio = $plan_de_negocio->estudioFinancieroV2;
         $titulo = "Total de Inversión Inicial";
-        // ! Enviar la ruta.
-        $url = "totalInversionInicial";
+        // * Enviar la ruta.
+        $url = route('plan_de_negocio.totalInversion.store', $plan_de_negocio);
         // * Variables para sacar el total de cada apartado
         $totalMobiliario = 0;
         $totalMaquinaria = 0;
@@ -49,9 +50,9 @@ class totalInversionInicial extends Controller
         }
 
         // * Sacar el total de gastos preoperativos
-        $gastosPreoperativos = $estudio->gastoPreoperativo()->select('costo_unitario')->get();
+        $gastosPreoperativos = $estudio->gastoPreoperativo()->select('cantidad','costo_unitario')->get();
         foreach ($gastosPreoperativos as $gastoPreoperativo) {
-            $totalGastosPreoperativos += $gastoPreoperativo->cantidad * $gastoPreoperativo->valor_unitario;
+            $totalGastosPreoperativos += $gastoPreoperativo->cantidad * $gastoPreoperativo->costo_unitario;
         }
         // * Enviarle los datos de capital de trabajo y prestamo.
         $capitalTrabajo = $estudio->total_capital_de_trabajo;
@@ -72,9 +73,12 @@ class totalInversionInicial extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $estudio = $plan_de_negocio->estudioFinancieroV2;
+        $estudio->total_capital_de_trabajo = $request[0];
+        $estudio->total_prestamo = $request[1];
+        $estudio->save();
     }
 
     /**

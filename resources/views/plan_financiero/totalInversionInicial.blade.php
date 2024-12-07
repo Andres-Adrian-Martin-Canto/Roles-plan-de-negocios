@@ -76,37 +76,37 @@
                     <tbody>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Capital de trabajo</td>
-                            <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" value="{{ $capitalTrabajo }}"></td>
+                            <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" id="capital_trabajo" value="{{ $capitalTrabajo }}"></td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Prestamo</td>
-                            <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" value="{{ $prestamo }}"></td>
+                            <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" id="prestamo" value="{{ $prestamo }}"></td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Mobiliario</td>
-                            <td class="border px-4 py-2 text-center">{{ number_format($totalMobiliario, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="mobiliario">{{ number_format($totalMobiliario, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Maquinaria</td>
-                            <td class="border px-4 py-2 text-center">{{ number_format($totalMaquinaria, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="maquinaria">{{ number_format($totalMaquinaria, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Vehiculos</td>
-                            <td class="border px-4 py-2 text-center">{{ number_format($totalVehiculos, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="vehiculos">{{ number_format($totalVehiculos, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Bienes inmuebles</td>
-                            <td class="border px-4 py-2 text-center">{{ number_format($totalBienesInmuebles, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="bienes_inmuebles">{{ number_format($totalBienesInmuebles, 2, '.', '') }}</td>
                         </tr>
                         <tr>
-                            <td class="border px-4 py-2 font-semibold">Gastos operativos</td>
-                            <td class="border px-4 py-2 text-center">{{ number_format($totalGastosPreoperativos, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 font-semibold">Gastos preoperativos</td>
+                            <td class="border px-4 py-2 text-center" id="gastos_operativos">{{ number_format($totalGastosPreoperativos, 2, '.', '') }}</td>
                         </tr>
                     </tbody>
                     <tfoot class="bg-gray-800  text-white">
                         <tr>
                             <td class="border px-4 py-2 font-bold">CAPITAL CONTABLE</td>
-                            <td class="border px-4 py-2 font-bold text-center">${{ number_format(($capitalTrabajo +  $totalMobiliario + $totalMaquinaria + $totalVehiculos + $totalBienesInmuebles + $totalGastosPreoperativos) - $prestamo, 2 , '.', '') }}</td>
+                            <td class="border px-4 py-2 font-bold text-center" id="capitalContable">${{ number_format(($capitalTrabajo +  $totalMobiliario + $totalMaquinaria + $totalVehiculos + $totalBienesInmuebles + $totalGastosPreoperativos) - $prestamo, 2 , '.', '') }}</td>
                         </tr>
                     </tfoot>
                 </table>
