@@ -14,7 +14,9 @@ class estudio_financiero_v2 extends Model
         'total_gastos_mensuales_mensuales',
         'total_gastos_preoperativos_mensuales',
         'total_gastos_de_articulos_por_venta_mensuales',
-        'total_ingresos_mensuales'
+        'total_ingresos_mensuales',
+        'total_capital_de_trabajo',
+        'total_prestamo'
     ];
 
     protected $table = 'estudio_financiero_v2';

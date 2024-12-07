@@ -27,7 +27,9 @@ class ingresosV2Controller extends Controller
                 'total_gastos_mensuales_mensuales' => 0,
                 'total_gastos_preoperativos_mensuales' => 0,
                 'total_gastos_de_articulos_por_venta_mensuales' => 0,
-                'total_ingresos_mensuales' => 0
+                'total_ingresos_mensuales' => 0,
+                'total_capital_de_trabajo' => 0,
+                'total_prestamo' => 0
             ]);
         }
         // * retorna la vista y envia los valores.
