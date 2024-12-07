@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('total_gastos_preoperativos_mensuales',12,2);
             $table->decimal('total_gastos_de_articulos_por_venta_mensuales',12,2);
             $table->decimal('total_ingresos_mensuales',12,2);
+            $table->decimal('total_capital_de_trabajo',12,2);
+            $table->decimal('total_prestamo',12,2);
             $table->timestamps();
         });
     }
