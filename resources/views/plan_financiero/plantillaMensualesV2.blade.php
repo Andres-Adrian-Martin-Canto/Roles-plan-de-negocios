@@ -66,7 +66,7 @@
             <h2 class="text-center text-2xl dark:text-white my-5">{{ $titulo }}</h2>
             <hr class="my-2 h-0.5 border-t-0 w-full bg-neutral-100 dark:bg-white m-0 p-0" />
             <div class="px-2 pb-2 mx-2 mb-2 bg-white">
-                <h2 class="text-center py-4  2xl:text-2xl text-lg font-normal">Ingresa los {{ $titulo }}</h2>
+                <h2 class="text-center py-4  2xl:text-2xl text-lg font-normal"></h2>
                 <table class="w-full table-auto" dato='{{ $plan_de_negocio->id }}'>
                     <thead>
                         <tr class="bg-gray-200">

@@ -194,7 +194,7 @@
                 <thead>
                     <tr>
                         <td colspan="13" class="text-center bg-amber-300 text-black">
-                            Gastos de articulos de venta
+                            Gastos de artículos de venta
                         </td>
                     </tr>
                 </thead>
@@ -251,7 +251,7 @@
                     <tr id="Total_Gastos_articulos_venta">
                         <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
                             width="15%">
-                            Total Gastos de articulos de venta: </th>
+                            Total Gastos de artículos de venta: </th>
                         <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
                             width="7%"></th>
                         <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"

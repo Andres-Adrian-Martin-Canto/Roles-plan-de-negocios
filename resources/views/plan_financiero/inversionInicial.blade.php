@@ -286,7 +286,7 @@
                 <thead>
                     <tr>
                         <td colspan="13" class="text-xs font-bold text-center bg-red-300 text-black">
-                            Vehiculos
+                            Vehículos
                         </td>
                     </tr>
                 </thead>
@@ -550,7 +550,7 @@
                     <tr id="total-vehiculos" class="bg-yellow-100">
                         <th class="border text-center text-xs border-gray-500   text-black" width="27%"
                             colspan="3">
-                            Total Vehiculos:
+                            Total Vehículos:
                         </th>
                         <th class="border text-xs text-right border-gray-500   text-black" width="7%"></th>
                         <th class="border text-xs text-center border-gray-500   text-black" width="7%">

@@ -79,7 +79,7 @@
                             <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" id="capital_trabajo" value="{{ $capitalTrabajo }}"></td>
                         </tr>
                         <tr>
-                            <td class="border px-4 py-2 font-semibold">Prestamo</td>
+                            <td class="border px-4 py-2 font-semibold">Préstamo</td>
                             <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" id="prestamo" value="{{ $prestamo }}"></td>
                         </tr>
                         <tr>
@@ -91,7 +91,7 @@
                             <td class="border px-4 py-2 text-center" id="maquinaria">{{ number_format($totalMaquinaria, 2, '.', '') }}</td>
                         </tr>
                         <tr>
-                            <td class="border px-4 py-2 font-semibold">Vehiculos</td>
+                            <td class="border px-4 py-2 font-semibold">Vehículos</td>
                             <td class="border px-4 py-2 text-center" id="vehiculos">{{ number_format($totalVehiculos, 2, '.', '') }}</td>
                         </tr>
                         <tr>
