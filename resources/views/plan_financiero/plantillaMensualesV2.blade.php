@@ -56,15 +56,15 @@
     @endif
 
     {{-- Las dos partes --}}
-    <div class="flex justify-center items-start 2xl:px-10 flex-wrap gap-10 w-full h-full ">
+    <div class="flex justify-center items-start 2xl:px-10 flex-nowrap gap-3 w-full h-full ">
         {{-- Es el menu del lador izquierdo --}}
-        <div class="relative rounded-lg border-none card w-1/6 h-full bg-white 2xl:pl-10 p-6 mt-9 dark:bg-gray-800">
+        <div class="relative rounded-lg border-none card w-1/4 2xl:w-1/6 h-full  2xl:pl-10 p-6 2xl:mt-3 bg-gray-800">
             @include('plan_financiero.menuIzquierdo')
         </div>
         {{-- Lado derecho --}}
         <div class="card w-3/4 mt-3">
-            <h2 class="text-center text-2xl dark:text-white my-5">{{ $titulo }}</h2>
-            <hr class="my-2 h-0.5 border-t-0 w-full bg-neutral-100 dark:bg-white m-0 p-0" />
+            <h2 class="text-center text-2xl text-white my-5">{{ $titulo }}</h2>
+            <hr class="my-2 h-0.5 border-t-0 w-full bg-white m-0 p-0" />
             <div class="px-2 pb-2 mx-2 mb-2 bg-white">
                 <h2 class="text-center py-4  2xl:text-2xl text-lg font-normal"></h2>
                 <table class="w-full table-auto" dato='{{ $plan_de_negocio->id }}'>
@@ -116,7 +116,7 @@
                     <tfoot class="">
                         <tr>
                             <td id="totaldeTotales" colspan="5"
-                                class="text-right pr-2 font-bold dark:bg-gray-800  text-white">
+                                class="text-right pr-2 font-bold bg-gray-800  text-white">
                                 Total {{ $titulo }}: $0.00
                             </td>
                         </tr>

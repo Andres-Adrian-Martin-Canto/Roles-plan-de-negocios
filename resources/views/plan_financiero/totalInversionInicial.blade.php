@@ -56,15 +56,15 @@
     @endif
 
     {{-- Las dos partes --}}
-    <div class="flex justify-center items-start 2xl:px-10 flex-wrap gap-10 w-full h-full ">
+    <div class="flex justify-center items-start 2xl:px-10 flex-nowrap gap-3 w-full h-full">
         {{-- Es el menu del lador izquierdo --}}
-        <div class="relative rounded-lg border-none card w-1/6 h-full bg-white 2xl:pl-10 p-6 mt-9 dark:bg-gray-800">
+        <div class="relative rounded-lg border-none card w-1/4 2xl:w-1/6 h-full 2xl:pl-10 p-6 2xl:mt-3 bg-gray-800">
             @include('plan_financiero.menuIzquierdo')
         </div>
         {{-- Lado derecho --}}
         <div class="card w-3/4 mt-3">
-            <h2 class="text-center text-2xl dark:text-white my-5">{{ $titulo }}</h2>
-            <hr class="my-2 h-0.5 border-t-0 w-full bg-neutral-100 dark:bg-white m-0 p-0" />
+            <h2 class="text-center text-2xl text-white my-5">{{ $titulo }}</h2>
+            <hr class="my-2 h-0.5 border-t-0 w-full bg-white m-0 p-0" />
             <div class="px-10 py-4 mx-2 mb-2 bg-white">
                 <table class="table-fixed w-full " dato='{{ $plan_de_negocio->id }}'>
                     <thead>
@@ -76,37 +76,48 @@
                     <tbody>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Capital de trabajo</td>
-                            <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" id="capital_trabajo" value="{{ $capitalTrabajo }}"></td>
+                            <td class="border px-4 py-2"><input type="text"
+                                    class="w-full h-full text-center border-r rounded-md" id="capital_trabajo"
+                                    value="{{ $capitalTrabajo }}"></td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Préstamo</td>
-                            <td class="border px-4 py-2"><input type="text" class="w-full h-full text-center border-r rounded-md" id="prestamo" value="{{ $prestamo }}"></td>
+                            <td class="border px-4 py-2"><input type="text"
+                                    class="w-full h-full text-center border-r rounded-md" id="prestamo"
+                                    value="{{ $prestamo }}"></td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Mobiliario</td>
-                            <td class="border px-4 py-2 text-center" id="mobiliario">{{ number_format($totalMobiliario, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="mobiliario">
+                                {{ number_format($totalMobiliario, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Maquinaria</td>
-                            <td class="border px-4 py-2 text-center" id="maquinaria">{{ number_format($totalMaquinaria, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="maquinaria">
+                                {{ number_format($totalMaquinaria, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Vehículos</td>
-                            <td class="border px-4 py-2 text-center" id="vehiculos">{{ number_format($totalVehiculos, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="vehiculos">
+                                {{ number_format($totalVehiculos, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Bienes inmuebles</td>
-                            <td class="border px-4 py-2 text-center" id="bienes_inmuebles">{{ number_format($totalBienesInmuebles, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="bienes_inmuebles">
+                                {{ number_format($totalBienesInmuebles, 2, '.', '') }}</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 font-semibold">Gastos preoperativos</td>
-                            <td class="border px-4 py-2 text-center" id="gastos_operativos">{{ number_format($totalGastosPreoperativos, 2, '.', '') }}</td>
+                            <td class="border px-4 py-2 text-center" id="gastos_operativos">
+                                {{ number_format($totalGastosPreoperativos, 2, '.', '') }}</td>
                         </tr>
                     </tbody>
                     <tfoot class="bg-gray-800  text-white">
                         <tr>
                             <td class="border px-4 py-2 font-bold">CAPITAL CONTABLE</td>
-                            <td class="border px-4 py-2 font-bold text-center" id="capitalContable">${{ number_format(($capitalTrabajo +  $totalMobiliario + $totalMaquinaria + $totalVehiculos + $totalBienesInmuebles + $totalGastosPreoperativos) - $prestamo, 2 , '.', '') }}</td>
+                            <td class="border px-4 py-2 font-bold text-center" id="capitalContable">
+                                ${{ number_format($capitalTrabajo + $totalMobiliario + $totalMaquinaria + $totalVehiculos + $totalBienesInmuebles + $totalGastosPreoperativos - $prestamo, 2, '.', '') }}
+                            </td>
                         </tr>
                     </tfoot>
                 </table>
@@ -114,8 +125,8 @@
             {{-- TODO: Boton para guardar --}}
             <div class="flex justify-center py-3">
                 {{-- TODO: Inserto la urlDinamica --}}
-                <button id="miBoton" urlDinamica={{ $url }}
-                    disabled class="w-1/4  bg-green-800 text-gray-400 font-bold py-1  rounded">
+                <button id="miBoton" urlDinamica={{ $url }} disabled
+                    class="w-1/4  bg-green-800 text-gray-400 font-bold py-1  rounded">
                     Guardar cambios
                 </button>
             </div>
