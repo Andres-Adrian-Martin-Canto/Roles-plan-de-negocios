@@ -161,7 +161,7 @@ class balaneGeneralCincoAnios extends Controller
 
 
         // TODO: Envio de datos a la vista
-        return view('plan_financiero.BalanceGeneralCincoAnios',[
+        return view('plan_financiero.FlujoEfectivoCincoAnios',[
             'titulo' => "Flujo de efectivo cinco años",
             // TODO: Gastos preoperativos
             'dataGastosPreoperativoAnuales' => $dataGastosPreoperativoAnuales,
