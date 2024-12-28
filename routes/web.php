@@ -42,6 +42,7 @@ use App\Http\Controllers\balaneGeneralCincoAnios;
 use App\Http\Controllers\gastosPreoperativosController;
 use App\Http\Controllers\flujoEfectivoMensualController;
 use App\Http\Controllers\CulturaOrganizacionalController;
+use App\Http\Controllers\flujoEfectivoAnualController;
 use App\Http\Controllers\flujoEfectivoCincoAniosController;
 use App\Http\Controllers\gastos_articulos_ventasController;
 use App\Http\Controllers\inversionInicialController;
@@ -105,8 +106,8 @@ Route::middleware('auth')->group(function () {
             'plan_de_negocio.gastosMensuales' =>  gastosMensualesController::class,
             'plan_de_negocio.gastos-articulo-venta' => gastos_articulos_ventasController::class,
             'plan_de_negocio.ingresosV2' => ingresosV2Controller::class,
-            'plan_de_negocio.flujoEfectivoAnual' => balanceGeneralAnualController::class,
-            'plan_de_negocio.flujoEfectivoCincoAnios' => balaneGeneralCincoAnios::class,
+            'plan_de_negocio.flujoEfectivoAnual' => flujoEfectivoAnualController::class,
+            'plan_de_negocio.flujoEfectivoCincoAnios' => flujoEfectivoCincoAniosController::class,
             'plan_de_negocio.inversionInicial' => inversionInicialController::class,
             'plan_de_negocio.totalInversion' => totalInversionInicial::class,
         ]);
