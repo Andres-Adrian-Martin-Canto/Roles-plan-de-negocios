@@ -1,5 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
     let a = document.querySelectorAll("ol a");
+    // Obtener el titulo de pagina
+    let titulo = document.querySelector('title').innerText;
+    // Condicion para saber en donde esta el usuario ubicado.
+    if (titulo === "Gastos Preoperativos") {
+        // remplace el color ring-gray-900 por ring-green-500
+        a[2].querySelector('span').classList.replace('ring-gray-900', 'ring-green-500');
+    }else if (titulo === "Total de Inversión Inicial") {
+        a[1].querySelector('span').classList.replace('ring-gray-900', 'ring-green-500');
+    }else if (titulo === "Gastos de articulos de venta") {
+        a[4].querySelector('span').classList.replace('ring-gray-900', 'ring-green-500');
+    }else if (titulo === "Gastos Mensuales") {
+        a[3].querySelector('span').classList.replace('ring-gray-900', 'ring-green-500');
+    }else{
+        a[5].querySelector('span').classList.replace('ring-gray-900', 'ring-green-500');
+    }
+
+
     // Asignarle el evento
     a.forEach((ae) => {
         // Se agregan los eventos.
