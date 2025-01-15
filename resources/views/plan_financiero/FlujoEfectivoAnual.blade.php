@@ -36,7 +36,7 @@
         {{-- Texto informativo --}}
         <h2 class="text-center text-2xl text-white py-4">{{ $titulo }}</h2>
         {{-- Particion del texto informativo y la tabla --}}
-        <hr class="my-2 h-0.5  border-t-0 w-full bg-neutral-100 dark:bg-white m-0 p-0" />
+        <hr class="my-2 h-0.5  border-t-0 w-full bg-white m-0 p-0" />
         {{-- Contenedor de la tabla --}}
         <div class=" px-2 py-3 mx-2  bg-white">
             <table class="w-full px-10 table-auto" id="miTabla" dato='{{ $plan_de_negocio->id }}'>
@@ -51,19 +51,19 @@
                 {{-- TODO: Cabecera informativa --}}
                 <thead>
                     <tr>
-                        <th class="border text-right pr-2 border-gray-500 dark:bg-gray-800  text-white" width="15%"
+                        <th class="border text-right pr-2 border-gray-500 bg-gray-800  text-white" width="15%"
                             colspan="2">Mes 1</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 2</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 3</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 4</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 5</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 6</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 7</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 8</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 9</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 10</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 11</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 12</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 2</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 3</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 4</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 5</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 6</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 7</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 8</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 9</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 10</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 11</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 12</th>
                     </tr>
                 </thead>
                 {{-- TODO: Gastos preoperativos --}}
@@ -108,32 +108,32 @@
                 {{-- TODO: Utilidades Gastos Preoperativos --}}
                 <thead>
                     <tr id="Total_Gastos_Preoperativos">
-                        <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-center text-xs border-gray-500 bg-gray-400  text-black"
                             width="15%">
                             Total Gastos Preoperativos: </th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
                     </tr>
                 </thead>
@@ -148,19 +148,19 @@
                 {{-- TODO: Cabecera informativa --}}
                 <thead>
                     <tr>
-                        <th class="border text-right pr-2 border-gray-500 dark:bg-gray-800  text-white" width="15%"
+                        <th class="border text-right pr-2 border-gray-500 bg-gray-800  text-white" width="15%"
                             colspan="2">Mes 1</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 2</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 3</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 4</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 5</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 6</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 7</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 8</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 9</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 10</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 11</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 12</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 2</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 3</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 4</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 5</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 6</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 7</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 8</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 9</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 10</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 11</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 12</th>
                     </tr>
                 </thead>
                 {{-- TODO: Body de gastos --}}
@@ -205,32 +205,32 @@
                 {{-- TODO: Utilidades de los GASTOS por año --}}
                 <thead>
                     <tr id="Total_gastos">
-                        <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-center text-xs border-gray-500 bg-gray-400  text-black"
                             width="15%">
                             Total gastos: </th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right  border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right  border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
                     </tr>
                 </thead>
@@ -245,19 +245,19 @@
                 {{-- TODO: Cabecera informativa --}}
                 <thead>
                     <tr>
-                        <th class="border text-right pr-2 border-gray-500 dark:bg-gray-800  text-white" width="15%"
+                        <th class="border text-right pr-2 border-gray-500 bg-gray-800  text-white" width="15%"
                             colspan="2">Mes 1</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 2</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 3</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 4</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 5</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 6</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 7</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 8</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 9</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 10</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 11</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 12</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 2</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 3</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 4</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 5</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 6</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 7</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 8</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 9</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 10</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 11</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 12</th>
                     </tr>
                 </thead>
                 {{-- TODO: Cuerpo de Gastos de articulos de venta --}}
@@ -302,32 +302,32 @@
                 {{-- TODO: Utilidades de Gastos de articulos de venta --}}
                 <thead>
                     <tr id="Total_Gastos_articulos_venta">
-                        <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-center text-xs border-gray-500 bg-gray-400  text-black"
                             width="15%">
                             Total Gastos de artículos de venta: </th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
                     </tr>
                 </thead>
@@ -342,19 +342,19 @@
                 {{-- TODO: Cabecera informativa --}}
                 <thead>
                     <tr>
-                        <th class="border text-right pr-2 border-gray-500 dark:bg-gray-800  text-white" width="15%"
+                        <th class="border text-right pr-2 border-gray-500 bg-gray-800  text-white" width="15%"
                             colspan="2">Mes 1</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 2</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 3</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 4</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 5</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 6</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 7</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 8</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 9</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 10</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 11</th>
-                        <th class="border border-gray-500 dark:bg-gray-800  text-white" width="7%">Mes 12</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 2</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 3</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 4</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 5</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 6</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 7</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 8</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 9</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 10</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 11</th>
+                        <th class="border border-gray-500 bg-gray-800  text-white" width="7%">Mes 12</th>
                     </tr>
                 </thead>
                 {{-- TODO: Cuerpo de Ingresos --}}
@@ -399,64 +399,64 @@
                 {{-- TODO: Utilidades de Gastos de articulos de venta --}}
                 <thead>
                     <tr id="Total_ingresos">
-                        <th class="border text-center text-xs border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-center text-xs border-gray-500 bg-gray-400  text-black"
                             width="15%">
                             Total ingresos:</th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-gray-400  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-gray-400  text-black"
                             width="7%"></th>
                     </tr>
                 </thead>
                 {{-- TODO: Utilidades totales --}}
                 <thead>
                     <tr id="utilidades">
-                        <th class="border text-center text-xs border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-center text-xs border-gray-500 bg-red-300  text-black"
                             width="15%">
                             Total utilidades: </th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
-                        <th class="border text-xs text-right border-gray-500 dark:bg-red-300  text-black"
+                        <th class="border text-xs text-right border-gray-500 bg-red-300  text-black"
                             width="7%"></th>
                     </tr>
                 </thead>

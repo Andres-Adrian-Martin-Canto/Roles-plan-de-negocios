@@ -25,7 +25,7 @@ class flujoEfectivoCincoAniosController extends Controller
         if (count($estudio->gastosPreoperativosAnuales) < 1 ||
         count($estudio->gastosAnuales) < 1 || count($estudio->gastos_articulos_venta_anuales) < 1
         || count($estudio->ingresos_Anuales) < 1) {
-            return redirect()->back()->with('mensaje', 'No se pueden ingresar al balance general a cinco años hasta que ingreses datos anuales.');
+            return redirect()->back()->with('mensaje', 'No se pueden ingresar al flujo de efectivo a cinco años hasta que ingreses datos anuales.');
         }
         // Variable para saber si el boton aparecera activo o no.
         $botonActivado = false;

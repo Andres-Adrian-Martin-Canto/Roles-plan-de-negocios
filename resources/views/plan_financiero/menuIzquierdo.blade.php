@@ -1,4 +1,4 @@
-<ol class="relative  border-s border-gray-700  ">
+<ol class="relative  border-s border-black dark:border-gray-700  ">
     <a href="{{ route('plan_de_negocio.inversionInicial.index', $plan_de_negocio) }}">
         <div class="mb-10 ">
             <li class="ms-6 ">

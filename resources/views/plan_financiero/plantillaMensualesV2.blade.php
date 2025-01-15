@@ -58,7 +58,7 @@
     {{-- Las dos partes --}}
     <div class="flex justify-center items-start 2xl:px-10 flex-nowrap gap-3 w-full h-full ">
         {{-- Es el menu del lador izquierdo --}}
-        <div class="relative rounded-lg border-none card w-1/4 2xl:w-1/6 h-full  2xl:pl-10 p-6 2xl:mt-3 bg-gray-800">
+        <div class="relative rounded-lg border-none card w-1/4 2xl:w-1/6 h-full  2xl:pl-10 p-6 2xl:mt-3">
             @include('plan_financiero.menuIzquierdo')
         </div>
         {{-- Lado derecho --}}
@@ -116,7 +116,7 @@
                     <tfoot class="">
                         <tr>
                             <td id="totaldeTotales" colspan="5"
-                                class="text-right pr-2 font-bold bg-gray-800  text-white">
+                                class="text-right pr-2 font-bold bg-slate-700 dark:bg-gray-800  text-white">
                                 Total {{ $titulo }}: $0.00
                             </td>
                         </tr>
